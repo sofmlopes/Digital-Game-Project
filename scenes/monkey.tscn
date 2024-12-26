@@ -46,7 +46,7 @@ rest = Transform2D(1, 0, 0, 1, -150, -104)
 
 [node name="forearm_left" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_left"]
 position = Vector2(-121, -44)
-rest = Transform2D(1, 0, 0, 1, -121, -44)
+rest = Transform2D(1, 0, 0, 1, -110.545, -44)
 
 [node name="hand_left" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_left/forearm_left"]
 position = Vector2(-70, -239)
