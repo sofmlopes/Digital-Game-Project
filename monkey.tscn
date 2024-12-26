@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b16ttdwsw553e"]
 
-[ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://macaco.png" id="1_eelxn"]
+[ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://Assets/macaco.png" id="1_eelxn"]
 
 [node name="Node2D" type="Node2D"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m5ftrngrnbd5"
-path="res://.godot/imported/rb_126233.png-9f0ca07ea3f17096b89bea2d2283e034.ctex"
+uid="uid://cjagme8f5eg08"
+path="res://.godot/imported/macaco.png-b64ec7bdfb48758adb85569f75b4e6a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rb_126233.png"
-dest_files=["res://.godot/imported/rb_126233.png-9f0ca07ea3f17096b89bea2d2283e034.ctex"]
+source_file="res://Assets/macaco.png"
+dest_files=["res://.godot/imported/macaco.png-b64ec7bdfb48758adb85569f75b4e6a0.ctex"]
 
 [params]
 

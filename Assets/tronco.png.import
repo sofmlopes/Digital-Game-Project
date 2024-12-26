@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buj3xb6ta7nju"
-path="res://.godot/imported/rb_82346.png-8b0b236e22a00ce2073763e141e63cdf.ctex"
+uid="uid://cf63lc677l2ah"
+path="res://.godot/imported/tronco.png-b221159410e1c731b6e59aa2394183c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rb_82346.png"
-dest_files=["res://.godot/imported/rb_82346.png-8b0b236e22a00ce2073763e141e63cdf.ctex"]
+source_file="res://Assets/tronco.png"
+dest_files=["res://.godot/imported/tronco.png-b221159410e1c731b6e59aa2394183c0.ctex"]
 
 [params]
 
