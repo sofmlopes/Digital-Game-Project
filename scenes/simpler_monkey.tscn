@@ -12,6 +12,8 @@ height = 62.0
 [node name="SimplerMonkey" type="CharacterBody2D"]
 script = ExtResource("1_oqokn")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, 15)
 texture = ExtResource("1_4lhyv")
