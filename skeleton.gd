@@ -28,7 +28,7 @@ func _ready():
 	if left_arm_index == -1 or right_arm_index == -1:
 		print("Error: Bone(s) not found!")
 
-func _process(delta):
+func _process(_delta):
 	if left_arm_index == -1 or right_arm_index == -1:
 		return
 

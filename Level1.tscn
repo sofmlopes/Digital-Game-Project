@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgev0s0hfb6ju"]
+[gd_scene load_steps=7 format=3 uid="uid://dgev0s0hfb6ju"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/21449237_6484339.jpg" id="1_dychp"]
 [ext_resource type="Texture2D" uid="uid://c2mbtnkpoel8i" path="res://Assets/arvore.png" id="2_dp8f6"]
 [ext_resource type="Texture2D" uid="uid://cjbj34f3s751b" path="res://Assets/rb_4538.png" id="3_h24la"]
 [ext_resource type="Texture2D" uid="uid://cf63lc677l2ah" path="res://Assets/tronco.png" id="3_t2t56"]
+[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://monkey.tscn" id="6_j84p7"]
+[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://branch.tscn" id="6_rqx52"]
 
 [node name="Level1" type="Node2D"]
 
@@ -14,7 +16,8 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(3000, 2000)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(576, 324)
+position = Vector2(576, -573)
+scale = Vector2(1, 1.897)
 texture = ExtResource("1_dychp")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -39,3 +42,9 @@ motion_mirroring = Vector2(2000, 0)
 position = Vector2(633, 3047)
 scale = Vector2(1.678, 1)
 texture = ExtResource("3_h24la")
+
+[node name="Node2D" parent="." instance=ExtResource("6_rqx52")]
+position = Vector2(655, 141)
+
+[node name="Monkey" parent="." instance=ExtResource("6_j84p7")]
+position = Vector2(243, 98)
