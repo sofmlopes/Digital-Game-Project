@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=3 format=3 uid="uid://bke44ta178iaj"]
 
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://Assets/macaco.png" id="1_eelxn"]
 [ext_resource type="Script" path="res://skeleton.gd" id="2_pqmiu"]
