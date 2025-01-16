@@ -3,12 +3,12 @@ extends Skeleton2D
 # Define bone names
 var left_arm_index = 3
 var right_arm_index = 6
-
-# Maximum offset range for arms (in pixels)
-var max_offset = 100.0
+var hand_locked = false
+@onready var hand = $chest/shoulders/upperarm_left/forearm_left/hand_left
+@export var max_offset = 100.0
 
 # Movement boundaries for bones (in degrees for rotation)
-var arm_rotation_bounds = {
+@export var arm_rotation_bounds = {
 	"min_angle": -20,  # Minimum rotation in degrees
 	"max_angle": 20    # Maximum rotation in degrees
 }
@@ -94,3 +94,20 @@ func apply_arm_offset(bone_index, offset):
 
 	# Apply the new transform to the bone
 	bone.position = new_position
+
+
+func _on_grab_event(hand_id: Variant, grabbing: Variant) -> void:
+	if grabbing:
+		print(hand_id, "hand is grabbing!")
+		lock_hand(hand_id)
+	else:
+		print(hand_id, "hand released!")
+
+func lock_hand(hand_name: String):
+	var hand_index = -1
+	if hand_name == "left":
+		hand_index = 3  # Replace with the actual bone index for the left hand
+	
+	if hand_index != -1:
+		var current_pose = get_bone_local_pose_override(hand_index)
+		set_bone_local_pose_override(hand_index, current_pose, 1.0, true)

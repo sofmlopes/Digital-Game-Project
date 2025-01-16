@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=8 format=3 uid="uid://b16ttdwsw553e"]
 
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_5f044"]
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://Assets/macaco.png" id="1_eelxn"]
 [ext_resource type="Script" path="res://skeleton.gd" id="2_pqmiu"]
 [ext_resource type="Script" path="res://hands.gd" id="3_2vxwd"]
@@ -9,11 +10,20 @@
 radius = 52.0
 height = 104.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
+radius = 238.0
+height = 482.0
+
 [node name="Monkey" type="Node2D"]
 
-[node name="polygons" type="Node2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_5f044")
 
-[node name="arm_left" type="Polygon2D" parent="polygons"]
+[node name="Node2D (Monkey)" type="Node2D" parent="CharacterBody2D"]
+
+[node name="polygons" type="Node2D" parent="CharacterBody2D/Node2D (Monkey)"]
+
+[node name="arm_left" type="Polygon2D" parent="CharacterBody2D/Node2D (Monkey)/polygons"]
 position = Vector2(44, 29)
 texture = ExtResource("1_eelxn")
 skeleton = NodePath("../../skeleton")
@@ -21,7 +31,7 @@ polygon = PackedVector2Array(340.01, 486.863, 340.01, 387.638, 340.01, 325.457, 
 uv = PackedVector2Array(340.01, 486.863, 340.01, 387.638, 340.01, 325.457, 304.289, 302.966, 275.183, 292.382, 252.692, 260.63, 223.586, 201.096, 190.512, 113.778, 215.648, 89.9637, 231.524, 72.7648, 201.096, 52.9198, 173.313, 29.1059, 140.238, 3.96893, 87.3177, 5.29192, 58.2119, 18.5219, 35.7209, 48.9508, 27.7829, 100.548, 50.2739, 130.977, 76.7338, 148.176, 74.0878, 201.096, 70.1188, 236.816, 60.8578, 272.537, 60.8578, 320.165, 70.1188, 367.793, 84.6718, 412.775, 107.163, 457.757, 134.946, 496.124, 160.083, 533.168, 190.512, 560.951, 227.555, 579.473, 259.307, 597.995, 293.705, 604.61, 338.687, 604.61)
 bones = ["chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders", PackedFloat32Array(0.96, 0.96, 0.96, 0.48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.48, 0.48, 0.48, 0.48, 0.48, 0), "chest/shoulders/upperarm_left", PackedFloat32Array(1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0.54, 0.54), "chest/shoulders/upperarm_left/forearm_left", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_left/forearm_left/hand_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_right/forearm_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_right/forearm_right/hand_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="arm_right" type="Polygon2D" parent="polygons"]
+[node name="arm_right" type="Polygon2D" parent="CharacterBody2D/Node2D (Monkey)/polygons"]
 position = Vector2(-43, 26)
 texture = ExtResource("1_eelxn")
 skeleton = NodePath("../../skeleton")
@@ -29,66 +39,69 @@ polygon = PackedVector2Array(690.201, 373.247, 690.201, 418.631, 690.201, 494.71
 uv = PackedVector2Array(690.201, 373.247, 690.201, 418.631, 690.201, 494.717, 690.201, 567.466, 690.201, 607.511, 700.213, 612.183, 728.244, 610.848, 756.276, 610.848, 775.631, 608.178, 786.31, 560.124, 794.986, 535.43, 817.011, 538.099, 840.371, 538.099, 859.726, 505.396, 881.083, 512.07, 905.778, 460.011, 913.787, 439.989, 929.805, 434.649, 922.463, 370.577, 945.823, 376.584, 953.832, 350.554, 939.816, 309.174, 962.509, 315.181, 957.169, 290.486, 937.814, 247.772, 921.796, 163.912, 952.497, 143.222, 987.203, 141.219, 996.547, 119.862, 992.542, 93.165, 979.862, 51.1176, 946.49, 33.7647, 914.454, 25.7556, 884.42, 21.7511, 858.391, 33.0972, 851.049, 60.4615, 851.717, 79.1492, 814.341, 70.4728, 795.654, 83.1537, 803.663, 102.509, 827.69, 123.199, 830.359, 146.559, 819.681, 184.602, 802.995, 225.982, 768.289, 284.047, 756.276, 308.074, 710.891, 316.751, 688.866, 325.427)
 bones = ["chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_left/forearm_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_left/forearm_left/hand_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "chest/shoulders/upperarm_right", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1), "chest/shoulders/upperarm_right/forearm_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0), "chest/shoulders/upperarm_right/forearm_right/hand_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="body" type="Polygon2D" parent="polygons"]
+[node name="body" type="Polygon2D" parent="CharacterBody2D/Node2D (Monkey)/polygons"]
 texture = ExtResource("1_eelxn")
 skeleton = NodePath("../../skeleton")
 polygon = PackedVector2Array(408.376, 348.274, 418.868, 342.719, 427.509, 317.414, 446.024, 298.899, 468.86, 287.789, 476.884, 277.297, 485.525, 260.633, 496.634, 255.696, 512.064, 260.016, 526.876, 272.977, 542.923, 282.852, 558.353, 292.11, 572.548, 303.219, 584.892, 313.711, 596.618, 330.993, 607.111, 342.102, 619.454, 356.297, 628.712, 364.938, 649.696, 361.235, 655.251, 368.024, 655.251, 408.141, 655.251, 511.211, 656.155, 624.875, 688.685, 628.49, 713.083, 626.682, 741.999, 632.104, 766.397, 646.562, 806.157, 666.442, 843.205, 691.743, 862.181, 728.792, 872.121, 765.841, 865.796, 788.431, 854.952, 814.636, 843.205, 861.625, 845.916, 888.734, 863.085, 910.421, 888.387, 920.36, 914.592, 934.818, 923.628, 951.987, 920.917, 971.867, 897.423, 985.422, 870.314, 982.711, 834.169, 981.807, 788.084, 969.156, 759.168, 954.698, 742.903, 930.3, 720.312, 941.144, 703.143, 902.288, 675.131, 917.65, 663.384, 894.155, 669.709, 809.215, 656.155, 779.395, 597.419, 746.865, 550.431, 722.467, 535.973, 734.214, 514.286, 754.094, 497.117, 759.515, 488.984, 735.117, 471.815, 722.467, 427.538, 741.443, 382.357, 761.323, 350.73, 774.877, 357.959, 828.191, 362.477, 885.119, 359.766, 901.384, 345.308, 904.999, 326.332, 873.372, 316.392, 913.131, 306.452, 931.204, 291.994, 925.782, 284.765, 909.517, 277.536, 937.529, 250.427, 955.602, 207.957, 955.602, 182.655, 967.349, 158.258, 977.289, 122.113, 970.964, 102.233, 966.445, 102.233, 941.144, 115.787, 919.457, 143.8, 907.71, 179.041, 897.77, 180.848, 848.974, 182.655, 808.311, 165.487, 779.395, 150.125, 743.25, 164.583, 708.912, 181.752, 698.069, 181.752, 675.478, 226.029, 651.984, 252.235, 643.851, 269.403, 628.49, 294.705, 622.164, 322.717, 609.514, 356.151, 612.224, 367.899, 606.803, 368.802, 546.26, 366.995, 475.777, 367.899, 395.354, 368.802, 349.27, 381.453, 349.27, 397.718, 353.788)
 uv = PackedVector2Array(408.376, 348.274, 418.868, 342.719, 427.509, 317.414, 446.024, 298.899, 468.86, 287.789, 476.884, 277.297, 485.525, 260.633, 496.634, 255.696, 512.064, 260.016, 526.876, 272.977, 542.923, 282.852, 558.353, 292.11, 572.548, 303.219, 584.892, 313.711, 596.618, 330.993, 607.111, 342.102, 619.454, 356.297, 628.712, 364.938, 649.696, 361.235, 655.251, 368.024, 655.251, 408.141, 655.251, 511.211, 656.155, 624.875, 688.685, 628.49, 713.083, 626.682, 741.999, 632.104, 766.397, 646.562, 806.157, 666.442, 843.205, 691.743, 862.181, 728.792, 872.121, 765.841, 865.796, 788.431, 854.952, 814.636, 843.205, 861.625, 845.916, 888.734, 863.085, 910.421, 888.387, 920.36, 914.592, 934.818, 923.628, 951.987, 920.917, 971.867, 897.423, 985.422, 870.314, 982.711, 834.169, 981.807, 788.084, 969.156, 759.168, 954.698, 742.903, 930.3, 720.312, 941.144, 703.143, 902.288, 675.131, 917.65, 663.384, 894.155, 669.709, 809.215, 656.155, 779.395, 597.419, 746.865, 550.431, 722.467, 535.973, 734.214, 514.286, 754.094, 497.117, 759.515, 488.984, 735.117, 471.815, 722.467, 427.538, 741.443, 382.357, 761.323, 350.73, 774.877, 357.959, 828.191, 362.477, 885.119, 359.766, 901.384, 345.308, 904.999, 326.332, 873.372, 316.392, 913.131, 306.452, 931.204, 291.994, 925.782, 284.765, 909.517, 277.536, 937.529, 250.427, 955.602, 207.957, 955.602, 182.655, 967.349, 158.258, 977.289, 122.113, 970.964, 102.233, 966.445, 102.233, 941.144, 115.787, 919.457, 143.8, 907.71, 179.041, 897.77, 180.848, 848.974, 182.655, 808.311, 165.487, 779.395, 150.125, 743.25, 164.583, 708.912, 181.752, 698.069, 181.752, 675.478, 226.029, 651.984, 252.235, 643.851, 269.403, 628.49, 294.705, 622.164, 322.717, 609.514, 356.151, 612.224, 367.899, 606.803, 368.802, 546.26, 366.995, 475.777, 367.899, 395.354, 368.802, 349.27, 381.453, 349.27, 397.718, 353.788)
 
-[node name="skeleton" type="Skeleton2D" parent="."]
+[node name="skeleton" type="Skeleton2D" parent="CharacterBody2D/Node2D (Monkey)"]
 script = ExtResource("2_pqmiu")
 
-[node name="chest" type="Bone2D" parent="skeleton"]
+[node name="chest" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton"]
 position = Vector2(525, 670)
 rest = Transform2D(1, 0, 0, 1, 525, 670)
 
-[node name="shoulders" type="Bone2D" parent="skeleton/chest"]
+[node name="shoulders" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest"]
 position = Vector2(-4, -139)
 rest = Transform2D(1, 0, 0, 1, -4, -139)
 
-[node name="upperarm_left" type="Bone2D" parent="skeleton/chest/shoulders"]
+[node name="upperarm_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders"]
 position = Vector2(-146, -104)
 rest = Transform2D(1, 0, 0, 1, -150, -104)
 
-[node name="forearm_left" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_left"]
+[node name="forearm_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left"]
 position = Vector2(-121, -44)
 rest = Transform2D(1, 0, 0, 1, -121, -44)
 
-[node name="hand_left" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_left/forearm_left"]
+[node name="hand_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left"]
 position = Vector2(-70, -217)
 rest = Transform2D(1, 0, 0, 1, -75, -211)
 
-[node name="left_collision" type="Area2D" parent="skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left"]
+[node name="left_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left"]
 position = Vector2(-3, -45)
 script = ExtResource("3_r67i5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision"]
 position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_0vqks")
 
-[node name="upperarm_right" type="Bone2D" parent="skeleton/chest/shoulders"]
+[node name="upperarm_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders"]
 position = Vector2(121, -99)
 rest = Transform2D(1, 0, 0, 1, 121, -99)
 
-[node name="forearm_right" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_right"]
+[node name="forearm_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right"]
 position = Vector2(140, -35)
 rest = Transform2D(1, 0, 0, 1, 140, -35)
 
-[node name="hand_right" type="Bone2D" parent="skeleton/chest/shoulders/upperarm_right/forearm_right"]
+[node name="hand_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right"]
 position = Vector2(70, -240)
 rotation = 1.91463
 rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 65, -229)
 
-[node name="right_collision" type="Area2D" parent="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right"]
+[node name="right_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right"]
 position = Vector2(-25.2921, 0.55862)
 script = ExtResource("3_2vxwd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision"]
 position = Vector2(-17.1559, -3.41676)
 shape = SubResource("CapsuleShape2D_0vqks")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(520, 524)
+shape = SubResource("CapsuleShape2D_kdu0q")
 
-[connection signal="body_entered" from="skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" method="_on_body_entered"]
-[connection signal="body_entered" from="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_entered"]
-[connection signal="body_exited" from="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" method="_on_body_entered"]
+[connection signal="grab_event" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton" method="_on_grab_event"]
+[connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_exited"]
