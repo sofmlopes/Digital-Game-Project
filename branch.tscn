@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhy6a560ymbj4"]
+
+[ext_resource type="Texture2D" uid="uid://kl4aankxvn6o" path="res://branch.png" id="1_nl115"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mguia"]
+radius = 186.527
+height = 1640.65
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Branch" type="Sprite2D" parent="."]
+texture = ExtResource("1_nl115")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Branch" groups=["grabbable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Branch/RigidBody2D"]
+rotation = -1.37428
+shape = SubResource("CapsuleShape2D_mguia")
