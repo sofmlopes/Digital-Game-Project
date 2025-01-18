@@ -8,13 +8,13 @@ height = 2180.46
 
 [node name="Node2D" type="Node2D"]
 
-[node name="RigidBody2D" type="StaticBody2D" parent="." groups=["grabbable"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["grabbable"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-14, 69)
 rotation = -1.37428
 scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_mguia")
 
-[node name="Branch" type="Sprite2D" parent="RigidBody2D"]
+[node name="Branch" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_nl115")

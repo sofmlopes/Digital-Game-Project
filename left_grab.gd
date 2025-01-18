@@ -5,7 +5,7 @@ var grabbing = false
 var grabbed_platform: Node2D = null  # The platform being grabbed
 
 # Signal to notify when grabbing starts or stops
-signal grab_event(hand_id, grabbing)  # hand_id will be "left" or "right"
+signal grab_event(hand_id, grabbing, grabbed_platform)  # hand_id will be "left" or "right"
 
 @onready var hand_id = "left"  # Change to "right" for the other hand
 
