@@ -4,8 +4,9 @@ extends Skeleton2D
 var left_arm_index = 3
 var right_arm_index = 6
 var hand_locked = false
-@onready var hand = $chest/shoulders/upperarm_left/forearm_left/hand_left
-@export var max_offset = 100.0
+@onready var character_body = self.get_parent().get_parent() # Replace this with the path to your physics node
+@export var max_offset = 300.0
+@export var max_stretch = 200.0  # Maximum arm stretch length
 
 # Movement boundaries for bones (in degrees for rotation)
 @export var arm_rotation_bounds = {
@@ -14,11 +15,15 @@ var hand_locked = false
 }
 
 # Joystick sensitivity
-var joystick_sensitivity = 100.0 
+var joystick_sensitivity = 100.0
 
 # Arm offsets
 var left_arm_offset = Vector2.ZERO
 var right_arm_offset = Vector2.ZERO
+
+# Spring joints
+var spring_joint_left = null
+var spring_joint_right = null
 
 func _ready():
 	# Find bone indices
@@ -57,7 +62,15 @@ func _process(_delta):
 	apply_arm_rotation(left_arm_index, left_x)
 	apply_arm_rotation(right_arm_index, right_x)
 
-	
+	# Update spring joint rest length based on joystick input (for stretching)
+	if spring_joint_left:
+		var stretch_factor_left = clamp(left_y, -1.0, 1.0)
+		spring_joint_left.rest_length = max_stretch + (stretch_factor_left * max_stretch * 0.5)
+		
+	if spring_joint_right:
+		var stretch_factor_right = clamp(right_y, -1.0, 1.0)
+		spring_joint_right.rest_length = max_stretch + (stretch_factor_right * max_stretch * 0.5)
+
 func apply_arm_rotation(bone_index, x_input):
 	if bone_index == -1:
 		return
@@ -96,18 +109,66 @@ func apply_arm_offset(bone_index, offset):
 	bone.position = new_position
 
 
-func _on_grab_event(hand_id: Variant, grabbing: Variant) -> void:
+# Grab event handler: Handle spring joint creation/removal
+func _on_grab_event(hand_id: Variant, grabbing: Variant, grabbed_platform: Node2D) -> void:
 	if grabbing:
 		print(hand_id, "hand is grabbing!")
 		lock_hand(hand_id)
+		#_create_spring_joint(hand_id, grabbed_platform)
 	else:
 		print(hand_id, "hand released!")
+		#_remove_spring_joint(hand_id)
 
 func lock_hand(hand_name: String):
 	var hand_index = -1
 	if hand_name == "left":
-		hand_index = 3  # Replace with the actual bone index for the left hand
+		hand_index = 4  # Replace with the actual bone index for the left hand
+	elif hand_name == "right":
+		hand_index = 7  # Replace with the actual bone index for the right hand
 	
 	if hand_index != -1:
 		var current_pose = get_bone_local_pose_override(hand_index)
+		if current_pose == null:
+			current_pose = Transform2D()  # Default pose if not overridden
+		# Lock the hand by setting a persistent local pose override
 		set_bone_local_pose_override(hand_index, current_pose, 1.0, true)
+
+func disable_gravity():
+	character_body.velocity = Vector2.ZERO  # Stops any movement from velocity
+	character_body.move_and_slide()
+
+#func _create_spring_joint(hand_id: String, grabbed_platform: Node2D):
+	## Create and configure the spring joint for the hand (either left or right)
+	#var hand_index = -1
+	#if hand_id == "left":
+		#hand_index = 4  # Replace with the actual bone index for the left hand
+	#elif hand_id == "right":
+		#hand_index = 7  # Replace with the actual bone index for the right hand
+	#var hand_bone_node = get_node("chest/shoulders/upperarm_left/forearm_left/hand_left/RigidBody2D") # Retrieve the bone node for the hand
+	#
+	## Create a new DampedSpringJoint2D
+	#var spring_joint = DampedSpringJoint2D.new()
+	#spring_joint.set_node_a(hand_bone_node.get_path())
+	#print(hand_bone_node.get_path())
+	#spring_joint.set_node_b(grabbed_platform.get_path())
+	#print(grabbed_platform.get_path())
+	#spring_joint.set_rest_length(max_stretch)  # Initial length
+	#spring_joint.set_stiffness(500)  # Adjust stiffness
+	#spring_joint.set_damping(10)  # Adjust damping for realistic spring behavior
+#
+	## Add the joint as a child to the skeleton or the character body
+	#character_body.add_child(spring_joint)
+#
+	## Store reference to the joint for later updates/removal
+	#if hand_id == "left":
+		#spring_joint_left = spring_joint
+	#elif hand_id == "right":
+		#spring_joint_right = spring_joint
+#
+#func _remove_spring_joint(hand_id: String):
+	#if hand_id == "left" and spring_joint_left:
+		#spring_joint_left.queue_free()
+		#spring_joint_left = null
+	#elif hand_id == "right" and spring_joint_right:
+		#spring_joint_right.queue_free()
+		#spring_joint_right = null

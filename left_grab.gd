@@ -28,9 +28,9 @@ func _process(delta):
 		if grabbed_platform and not grabbing:
 			grabbing = true  # Start grabbing
 			print(hand_id + " Grabbing started")
-			emit_signal("grab_event", hand_id, grabbing)
+			emit_signal("grab_event", hand_id, grabbing, grabbed_platform)
 
 	if Input.is_action_just_released("grab_left") and grabbing:  # Trigger released
 		grabbing = false  # End the grabbing state
 		print(hand_id + " Grabbing ended")
-		emit_signal("grab_event", hand_id, grabbing)
+		emit_signal("grab_event", hand_id, grabbing, grabbed_platform)
