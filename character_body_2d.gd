@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -9,10 +9,10 @@ const JUMP_VELOCITY = -400.0
 @export var spring_stiffness = 1000
 @export var spring_damping = 1
 
-func _physics_process(delta: float) -> void:
-	# Use gravity only if no hands are grabbing
-	velocity += Vector2(1,1) * delta  # Apply gravity to the whole velocity vector
-	move_and_slide()
+#func _physics_process(delta: float) -> void:
+	## Use gravity only if no hands are grabbing
+	#velocity += Vector2(1,1) * delta  # Apply gravity to the whole velocity vector
+	#move_and_slide()
 
 
 
