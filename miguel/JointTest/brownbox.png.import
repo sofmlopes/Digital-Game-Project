@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1fniawnil53r"
-path="res://.godot/imported/brownbox.png-6eb0f333890172be68c1469e1e254362.ctex"
+path="res://.godot/imported/brownbox.png-207644432fc83d0a38175fcd845701a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JointTest/brownbox.png"
-dest_files=["res://.godot/imported/brownbox.png-6eb0f333890172be68c1469e1e254362.ctex"]
+source_file="res://miguel/JointTest/brownbox.png"
+dest_files=["res://.godot/imported/brownbox.png-207644432fc83d0a38175fcd845701a3.ctex"]
 
 [params]
 
