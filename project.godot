@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Monkey Climber: The Rescue"
-run/main_scene="res://Level1.tscn"
+run/main_scene="res://miguel/scenes/simple_monkey_test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

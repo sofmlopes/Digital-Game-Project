@@ -1,31 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://depasx1d377l5"]
+[gd_scene load_steps=8 format=3 uid="uid://depasx1d377l5"]
 
 [ext_resource type="Texture2D" uid="uid://mtjamqcoyrr6" path="res://miguel/sprites/test/brownbox.png" id="1_4lhyv"]
 [ext_resource type="Texture2D" uid="uid://bt0vwj06s651n" path="res://miguel/sprites/test/LeftHand.png" id="1_8qhwq"]
 [ext_resource type="Script" path="res://miguel/scripts/simpler_monkey.gd" id="1_oqokn"]
 [ext_resource type="Texture2D" uid="uid://cd2w6g3au6kxy" path="res://miguel/sprites/test/RightHand.png" id="2_lytv4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gng5j"]
-radius = 15.0
-height = 62.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeoqp"]
+size = Vector2(32, 64)
 
-[node name="SimplerMonkey" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_45881"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmxpd"]
+
+[node name="SimplerMonkey" type="Node2D"]
+
+[node name="MonkeyBody" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_oqokn")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="MonkeyBody"]
 position = Vector2(0, 15)
 texture = ExtResource("1_4lhyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonkeyBody"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_eeoqp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="LeftHand" type="Sprite2D" parent="."]
 position = Vector2(-32, 0)
 texture = ExtResource("1_8qhwq")
 
+[node name="Area2D" type="Area2D" parent="LeftHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/Area2D"]
+shape = SubResource("CircleShape2D_45881")
+
 [node name="RightHand" type="Sprite2D" parent="."]
 position = Vector2(32, 0)
 texture = ExtResource("2_lytv4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15)
-shape = SubResource("CapsuleShape2D_gng5j")
+[node name="RightHand" type="Area2D" parent="RightHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/RightHand"]
+shape = SubResource("CircleShape2D_nmxpd")
+
+[connection signal="body_entered" from="LeftHand/Area2D" to="MonkeyBody" method="_on_lefthand_body_entered"]
+[connection signal="body_exited" from="LeftHand/Area2D" to="MonkeyBody" method="_on_lefthand_body_exited"]
