@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=8 format=3 uid="uid://b16ttdwsw553e"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_5f044"]
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://Assets/macaco.png" id="1_eelxn"]
@@ -6,25 +6,18 @@
 [ext_resource type="Script" path="res://hands.gd" id="3_2vxwd"]
 [ext_resource type="Script" path="res://left_grab.gd" id="3_r67i5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
-radius = 238.0
-height = 482.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vqks"]
 radius = 52.0
 height = 104.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cmshh"]
-radius = 25.02
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
+radius = 238.0
+height = 482.0
 
 [node name="Monkey" type="Node2D"]
 
-[node name="CharacterBody2D" type="RigidBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_5f044")
-
-[node name="Body" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(520, 524)
-shape = SubResource("CapsuleShape2D_kdu0q")
 
 [node name="Node2D (Monkey)" type="Node2D" parent="CharacterBody2D"]
 
@@ -64,7 +57,7 @@ position = Vector2(-4, -139)
 rest = Transform2D(1, 0, 0, 1, -4, -139)
 
 [node name="upperarm_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders"]
-position = Vector2(-150, -104)
+position = Vector2(-146, -104)
 rest = Transform2D(1, 0, 0, 1, -150, -104)
 
 [node name="forearm_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left"]
@@ -72,21 +65,16 @@ position = Vector2(-121, -44)
 rest = Transform2D(1, 0, 0, 1, -121, -44)
 
 [node name="hand_left" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left"]
-position = Vector2(-77, -254)
-rest = Transform2D(1, 0, 0, 1, -77, -254)
+position = Vector2(-70, -217)
+rest = Transform2D(1, 0, 0, 1, -75, -211)
 
 [node name="left_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left"]
+position = Vector2(-3, -45)
 script = ExtResource("3_r67i5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision"]
 position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_0vqks")
-
-[node name="HandBody" type="CharacterBody2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/HandBody"]
-shape = SubResource("CircleShape2D_cmshh")
-debug_color = Color(0.978531, 0.0370203, 0.365518, 0.42)
 
 [node name="upperarm_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders"]
 position = Vector2(121, -99)
@@ -97,12 +85,12 @@ position = Vector2(140, -35)
 rest = Transform2D(1, 0, 0, 1, 140, -35)
 
 [node name="hand_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right"]
-position = Vector2(73, -252)
-rotation = 1.86576
-scale = Vector2(1, 1)
-rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
+position = Vector2(70, -240)
+rotation = 1.91463
+rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 65, -229)
 
 [node name="right_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right"]
+position = Vector2(-25.2921, 0.55862)
 script = ExtResource("3_2vxwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision"]
@@ -115,8 +103,11 @@ bone2d_nodepath = NodePath("../chest/shoulders/upperarm_left/forearm_left")
 bone2d_index = 3
 simulate_physics = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(520, 524)
+shape = SubResource("CapsuleShape2D_kdu0q")
+
 [connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" method="_on_body_entered"]
 [connection signal="grab_event" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton" method="_on_grab_event"]
-[connection signal="grab_event" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D" method="handle_grab_event"]
 [connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" method="_on_body_exited"]
