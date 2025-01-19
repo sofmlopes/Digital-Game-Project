@@ -53,3 +53,5 @@ shape = SubResource("CircleShape2D_nmxpd")
 
 [connection signal="body_entered" from="LeftHand/Area2D" to="MonkeyBody" method="_on_lefthand_body_entered"]
 [connection signal="body_exited" from="LeftHand/Area2D" to="MonkeyBody" method="_on_lefthand_body_exited"]
+[connection signal="body_entered" from="RightHand/RightHand" to="MonkeyBody" method="_on_righthand_body_entered"]
+[connection signal="body_exited" from="RightHand/RightHand" to="MonkeyBody" method="_on_righthand_body_exited"]
