@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://depasx1d377l5"]
+
+[ext_resource type="Texture2D" uid="uid://mtjamqcoyrr6" path="res://miguel/sprites/test/brownbox.png" id="1_4lhyv"]
+[ext_resource type="Texture2D" uid="uid://bt0vwj06s651n" path="res://miguel/sprites/test/LeftHand.png" id="1_8qhwq"]
+[ext_resource type="Script" path="res://miguel/scripts/simpler_monkey.gd" id="1_oqokn"]
+[ext_resource type="Texture2D" uid="uid://cd2w6g3au6kxy" path="res://miguel/sprites/test/RightHand.png" id="2_lytv4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gng5j"]
+radius = 15.0
+height = 62.0
+
+[node name="SimplerMonkey" type="CharacterBody2D"]
+script = ExtResource("1_oqokn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+texture = ExtResource("1_4lhyv")
+
+[node name="LeftHand" type="Sprite2D" parent="."]
+position = Vector2(-32, 0)
+texture = ExtResource("1_8qhwq")
+
+[node name="RightHand" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("2_lytv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_gng5j")
