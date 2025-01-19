@@ -46,7 +46,16 @@ func _physics_process(delta: float) -> void:
 		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
 	else:
 		var left_hand_offset = left_arm_axis
-		self.global_position = left_hand.global_position + left_hand_offset - LEFT_ARM_OFFSET
+		#self.global_position = left_hand.global_position - left_hand_offset - LEFT_ARM_OFFSET
+		# Apply force to move the player toward the left hand
+		var target_position = left_hand.global_position - left_hand_offset - LEFT_ARM_OFFSET
+		var current_position = self.global_position
+		var direction: Vector2 = (target_position - current_position)
+		var distance = (target_position - current_position).length()
+
+		# Apply a force proportional to the distance
+		var force = direction * min(distance * 0.05, 1)  # Adjust values for speed and max force
+		self.apply_impulse(force, Vector2(0, 0))
 
 	# Right Hand
 	var right_hand_offset = right_arm_axis
