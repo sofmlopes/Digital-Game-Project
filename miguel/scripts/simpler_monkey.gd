@@ -31,16 +31,9 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("grab_left") and left_hand_can_grab != null and is_left_grabbing == false: #need to save which object it was
 		print("idk")
-		
-		#var pin_joint = PinJoint2D.new()
-		#pin_joint.global_position = left_hand.global_position # Set joint's position to body_a's position
-		#pin_joint.node_a = left_hand.get_path() # Path to the first body
-		#pin_joint.node_b = left_hand_can_grab.get_path() # Path to the second body
-		#add_child(pin_joint)
 		is_left_grabbing = true
-	# Print the result for debugging
-	#print("Left Arm Axis:", left_arm_axis)
-	#print("Right Arm Axis:", right_arm_axis)
+	elif Input.is_action_just_released("grab_left"):
+		is_left_grabbing = false
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -52,7 +45,8 @@ func _physics_process(delta: float) -> void:
 		var left_hand_offset = left_arm_axis
 		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
 	else:
-		self.global_position = left_hand.global_position
+		var left_hand_offset = left_arm_axis
+		self.global_position = left_hand.global_position + left_hand_offset - LEFT_ARM_OFFSET
 
 	# Right Hand
 	var right_hand_offset = right_arm_axis
