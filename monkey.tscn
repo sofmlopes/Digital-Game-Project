@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=7 format=3 uid="uid://cw3ilp1hwl5jm"]
 
-[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_5f044"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_5f044"]
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://miguel/sprites/macaco.png" id="1_eelxn"]
-[ext_resource type="Script" path="res://Scripts/skeleton.gd" id="2_pqmiu"]
+[ext_resource type="Script" path="res://skeleton.gd" id="2_pqmiu"]
 [ext_resource type="Texture2D" uid="uid://dofpmivkphpvm" path="res://miguel/sprites/icon.svg" id="5_22sga"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
@@ -75,6 +75,12 @@ rest = Transform2D(1, 0, 0, 1, -121, -44)
 position = Vector2(-77, -254)
 rest = Transform2D(1, 0, 0, 1, -77, -254)
 
+[node name="left_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision"]
+position = Vector2(1, -10)
+shape = SubResource("CapsuleShape2D_0vqks")
+
 [node name="upperarm_right" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders"]
 position = Vector2(121, -99)
 rest = Transform2D(1, 0, 0, 1, 121, -99)
@@ -88,6 +94,12 @@ position = Vector2(73, -252)
 rotation = 1.86576
 rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
 
+[node name="right_collision" type="Area2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision"]
+position = Vector2(-17.1559, -3.41676)
+shape = SubResource("CapsuleShape2D_0vqks")
+
 [node name="PhysicalBone2D" type="PhysicalBone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton"]
 position = Vector2(254, 383)
 bone2d_nodepath = NodePath("../chest/shoulders/upperarm_left/forearm_left")
@@ -100,26 +112,10 @@ simulate_physics = true
 position = Vector2(-338, -404)
 texture = ExtResource("5_22sga")
 
-[node name="left_collision" type="Area2D" parent="LeftHand"]
-position = Vector2(-2, 4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/left_collision"]
-position = Vector2(1, -10)
-shape = SubResource("CapsuleShape2D_0vqks")
-
 [node name="RightHand" type="Sprite2D" parent="."]
 position = Vector2(346, -412)
 texture = ExtResource("5_22sga")
 
-[node name="right_collision" type="Area2D" parent="RightHand"]
-position = Vector2(-4, 28)
-rotation = 1.86576
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/right_collision"]
-position = Vector2(-17.1559, -3.41676)
-shape = SubResource("CapsuleShape2D_0vqks")
-
-[connection signal="body_entered" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_entered"]
-[connection signal="body_exited" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_exited"]
-[connection signal="body_entered" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_entered"]
-[connection signal="body_exited" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D" method="_on_lefthand_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/left_collision" to="CharacterBody2D" method="_on_lefthand_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_right/forearm_right/hand_right/right_collision" to="CharacterBody2D" method="_on_righthand_body_entered"]

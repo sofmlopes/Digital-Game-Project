@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const JUMP_VELOCITY = -400.0
-const ARM_MAX_DISTANCE = 300.0
+const ARM_MAX_DISTANCE = 100.0
 
 const LEFT_ARM_OFFSET = Vector2(-200, -400)
 const RIGHT_ARM_OFFSET = Vector2(200, -400)
@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 
 	# Left Hand
 	if !is_left_grabbing:
-		var left_hand_offset = left_arm_axis
+		var left_hand_offset = left_arm_axis *10
 		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
 	else:
 		var left_hand_offset = left_arm_axis
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 
 	# Right Hand
 	if !is_right_grabbing:
-		var right_hand_offset = right_arm_axis
+		var right_hand_offset = right_arm_axis * 10
 		right_hand.global_position = self.global_position + right_hand_offset + RIGHT_ARM_OFFSET
 	else:
 		var right_hand_offset = right_arm_axis
