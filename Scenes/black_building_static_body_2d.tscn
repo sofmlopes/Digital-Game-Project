@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7i8vendyq75f"]
+
+[ext_resource type="Texture2D" uid="uid://fqke1yx3wqjt" path="res://Assets/BlackBuilding.png" id="1_2vniy"]
+
+[node name="BlackBuildingStaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3705, 594)
+scale = Vector2(4.58107, 8.71277)
+texture = ExtResource("1_2vniy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2850, -963, 2850, -1268, 3201, -1540, 3608, -1608, 3710, -1608, 3710, -1766, 3902, -1653, 3936, -997, 3891, 56, 3891, 169, 4061, 101, 4423, 90, 4423, 10, 4547, 101, 4581, 1583, 4559, 2669, 4649, 2669, 4683, 2884, 4717, 2952, 2862, 2963, 2873, 848, 2907, -306)

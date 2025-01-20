@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fqke1yx3wqjt"
-path="res://.godot/imported/rb_21560.png-95c62c7cff9b3a7d67fa8aec433efcc3.ctex"
+uid="uid://dij2b38d77y"
+path="res://.godot/imported/Cage.png-0bc3e203f166b81068875536e062f587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rb_21560.png"
-dest_files=["res://.godot/imported/rb_21560.png-95c62c7cff9b3a7d67fa8aec433efcc3.ctex"]
+source_file="res://Assets/Cage.png"
+dest_files=["res://.godot/imported/Cage.png-0bc3e203f166b81068875536e062f587.ctex"]
 
 [params]
 
