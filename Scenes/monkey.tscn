@@ -22,16 +22,15 @@ lock_rotation = true
 script = ExtResource("1_5f044")
 
 [node name="Body" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(3, 3)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0, 15)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_kdu0q")
 
 [node name="Node2D (Monkey)" type="Node2D" parent="CharacterBody2D"]
-position = Vector2(-513, -529)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-51, -36)
+scale = Vector2(0.1, 0.1)
 
 [node name="polygons" type="Node2D" parent="CharacterBody2D/Node2D (Monkey)"]
-position = Vector2(785, 777.5)
 
 [node name="arm_left" type="Polygon2D" parent="CharacterBody2D/Node2D (Monkey)/polygons"]
 position = Vector2(44, 29)
@@ -56,7 +55,6 @@ polygon = PackedVector2Array(408.376, 348.274, 418.868, 342.719, 427.509, 317.41
 uv = PackedVector2Array(408.376, 348.274, 418.868, 342.719, 427.509, 317.414, 446.024, 298.899, 468.86, 287.789, 476.884, 277.297, 485.525, 260.633, 496.634, 255.696, 512.064, 260.016, 526.876, 272.977, 542.923, 282.852, 558.353, 292.11, 572.548, 303.219, 584.892, 313.711, 596.618, 330.993, 607.111, 342.102, 619.454, 356.297, 628.712, 364.938, 649.696, 361.235, 655.251, 368.024, 655.251, 408.141, 655.251, 511.211, 656.155, 624.875, 688.685, 628.49, 713.083, 626.682, 741.999, 632.104, 766.397, 646.562, 806.157, 666.442, 843.205, 691.743, 862.181, 728.792, 872.121, 765.841, 865.796, 788.431, 854.952, 814.636, 843.205, 861.625, 845.916, 888.734, 863.085, 910.421, 888.387, 920.36, 914.592, 934.818, 923.628, 951.987, 920.917, 971.867, 897.423, 985.422, 870.314, 982.711, 834.169, 981.807, 788.084, 969.156, 759.168, 954.698, 742.903, 930.3, 720.312, 941.144, 703.143, 902.288, 675.131, 917.65, 663.384, 894.155, 669.709, 809.215, 656.155, 779.395, 597.419, 746.865, 550.431, 722.467, 535.973, 734.214, 514.286, 754.094, 497.117, 759.515, 488.984, 735.117, 471.815, 722.467, 427.538, 741.443, 382.357, 761.323, 350.73, 774.877, 357.959, 828.191, 362.477, 885.119, 359.766, 901.384, 345.308, 904.999, 326.332, 873.372, 316.392, 913.131, 306.452, 931.204, 291.994, 925.782, 284.765, 909.517, 277.536, 937.529, 250.427, 955.602, 207.957, 955.602, 182.655, 967.349, 158.258, 977.289, 122.113, 970.964, 102.233, 966.445, 102.233, 941.144, 115.787, 919.457, 143.8, 907.71, 179.041, 897.77, 180.848, 848.974, 182.655, 808.311, 165.487, 779.395, 150.125, 743.25, 164.583, 708.912, 181.752, 698.069, 181.752, 675.478, 226.029, 651.984, 252.235, 643.851, 269.403, 628.49, 294.705, 622.164, 322.717, 609.514, 356.151, 612.224, 367.899, 606.803, 368.802, 546.26, 366.995, 475.777, 367.899, 395.354, 368.802, 349.27, 381.453, 349.27, 397.718, 353.788)
 
 [node name="skeleton" type="Skeleton2D" parent="CharacterBody2D/Node2D (Monkey)"]
-position = Vector2(782.5, 800)
 script = ExtResource("2_pqmiu")
 
 [node name="chest" type="Bone2D" parent="CharacterBody2D/Node2D (Monkey)/skeleton"]
@@ -93,28 +91,26 @@ rotation = 1.86576
 rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
 
 [node name="LeftHand" type="Sprite2D" parent="."]
-position = Vector2(-335, -192)
+position = Vector2(-32, 0)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_22sga")
 
 [node name="left_collision" type="Area2D" parent="LeftHand"]
-position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/left_collision"]
-position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_0vqks")
 
 [node name="RightHand" type="Sprite2D" parent="."]
-position = Vector2(349, -200)
+position = Vector2(32, 0)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_22sga")
 
 [node name="right_collision" type="Area2D" parent="RightHand"]
-position = Vector2(-4, 28)
-rotation = 1.86576
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/right_collision"]
-position = Vector2(-17.1559, -3.41676)
 shape = SubResource("CapsuleShape2D_0vqks")
 
 [connection signal="body_entered" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_entered"]
