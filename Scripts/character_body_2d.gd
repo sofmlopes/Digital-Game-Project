@@ -22,6 +22,9 @@ var is_right_grabbing = false
 @onready var left_hand_bone = 4
 @onready var right_hand_bone = 7
 
+@onready var text_red = preload("res://Assets/Red-Circle-Transparent.png")
+@onready var text_green = preload("res://Assets/Green-Circle.png")
+
 func _process(delta: float) -> void:
 	
 	var left_x = Input.get_axis("move_leftarm_left", "move_leftarm_right")
@@ -53,21 +56,26 @@ func _physics_process(delta: float) -> void:
 
 	# Left Hand
 	if !is_left_grabbing:
-		left_hand.visible = false
+		left_hand.texture = text_red
+		left_hand.modulate = Color(1,1,1,0.5)
 		var left_hand_offset = left_arm_axis
 		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
+
 	else:
-		left_hand.visible = true
+		left_hand.texture = text_green
+		left_hand.modulate = Color(1,1,1,0.5)
 		var left_hand_offset = left_arm_axis
 		pull_player_to_hand(left_arm_axis, left_hand, LEFT_ARM_OFFSET)
 
 	# Right Hand
 	if !is_right_grabbing:
-		right_hand.visible = false
+		right_hand.texture = text_red
+		right_hand.modulate = Color(1,1,1,0.5)
 		var right_hand_offset = right_arm_axis
 		right_hand.global_position = self.global_position + right_hand_offset + RIGHT_ARM_OFFSET
 	else:
-		right_hand.visible = true
+		right_hand.texture = text_green
+		right_hand.modulate = Color(1,1,1,0.5)
 		var right_hand_offset = right_arm_axis
 		pull_player_to_hand(right_arm_axis, right_hand, RIGHT_ARM_OFFSET)
 
