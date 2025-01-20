@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhy6a560ymbj4"]
 
-[ext_resource type="Texture2D" uid="uid://kl4aankxvn6o" path="res://branch.png" id="1_nl115"]
+[ext_resource type="Texture2D" uid="uid://kl4aankxvn6o" path="res://Assets/branch.png" id="1_nl115"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mguia"]
 radius = 399.095

@@ -30,7 +30,7 @@ visibility_layer = 2
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_eeoqp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="MonkeyBody"]
 zoom = Vector2(2, 2)
 
 [node name="LeftHand" type="Sprite2D" parent="."]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dafr185s33wep"]
+
+[ext_resource type="Texture2D" uid="uid://cf63lc677l2ah" path="res://Assets/tronco.png" id="1_cu5vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay70d"]
+size = Vector2(192, 3120.5)
+
+[node name="TreeArea2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(662, 2759)
+scale = Vector2(14.5893, 7.85435)
+texture = ExtResource("1_cu5vx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(650, 1735)
+scale = Vector2(14.5893, 7.85435)
+texture = ExtResource("1_cu5vx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(642, 711)
+scale = Vector2(14.5893, 7.85435)
+texture = ExtResource("1_cu5vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(628, 1741.25)
+shape = SubResource("RectangleShape2D_ay70d")

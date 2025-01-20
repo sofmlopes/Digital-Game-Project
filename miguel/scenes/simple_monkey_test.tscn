@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://depasx1d377l5" path="res://miguel/scenes/simpler_monkey.tscn" id="1_8epwp"]
 [ext_resource type="Texture2D" uid="uid://bk0kgnj7th7w1" path="res://miguel/sprites/rb_772.png" id="2_bi5cm"]
-[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://branch.tscn" id="3_2cqig"]
+[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/branch.tscn" id="3_2cqig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7og"]
 size = Vector2(2000, 1064)
@@ -15,8 +15,6 @@ scale = Vector2(0.1, 0.1)
 
 [node name="SimplerMonkey" parent="." instance=ExtResource("1_8epwp")]
 position = Vector2(55, -69)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(119, 418)
