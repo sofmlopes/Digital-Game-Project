@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt5g8vvovoh0o"]
+
+[ext_resource type="Texture2D" uid="uid://bbw0aqpuoti0m" path="res://Assets/MonkeyWife.png" id="1_c4jtd"]
+[ext_resource type="Texture2D" uid="uid://dij2b38d77y" path="res://Assets/Cage.png" id="2_t4xwr"]
+
+[node name="CageWithMonkeyWifeStaticBody2D" type="StaticBody2D"]
+position = Vector2(-864, -1520)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4312, -640)
+texture = ExtResource("1_c4jtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4321, -464)
+scale = Vector2(0.629353, 0.479)
+texture = ExtResource("2_t4xwr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4166, -70, 4288, -122, 4290, -316, 4296, -420, 4076, -426, 4086, -448, 4086, -472, 4104, -474, 4102, -756, 4120, -807, 4190, -853, 4288, -881, 4292, -915, 4314, -921, 4338, -913, 4338, -889, 4374, -879, 4458, -847, 4496, -819, 4526, -789, 4532, -591, 4536, -487, 4552, -481, 4560, -427, 4458, -421, 4346, -419, 4348, -129, 4410, -105, 4446, -95)
