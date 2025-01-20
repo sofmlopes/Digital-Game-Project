@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clc4ysn8d4p8h"]
+
+[ext_resource type="Texture2D" uid="uid://n48ep4pvkjt8" path="res://Assets/Liana.png" id="1_2kox4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nitk"]
+radius = 97.0
+height = 1538.0
+
+[node name="LianaStaticBody2D" type="StaticBody2D" groups=["grabbable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1276, 224)
+scale = Vector2(1.4376, 1)
+texture = ExtResource("1_2kox4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1314, 168)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_8nitk")

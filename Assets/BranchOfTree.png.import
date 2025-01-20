@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf63lc677l2ah"
-path="res://.godot/imported/tronco.png-b221159410e1c731b6e59aa2394183c0.ctex"
+path="res://.godot/imported/BranchOfTree.png-8265bc47a6eb88e8bae9aaa534329c79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tronco.png"
-dest_files=["res://.godot/imported/tronco.png-b221159410e1c731b6e59aa2394183c0.ctex"]
+source_file="res://Assets/BranchOfTree.png"
+dest_files=["res://.godot/imported/BranchOfTree.png-8265bc47a6eb88e8bae9aaa534329c79.ctex"]
 
 [params]
 

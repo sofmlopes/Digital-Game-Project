@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkja16xxr3sfx"]
+
+[ext_resource type="Texture2D" uid="uid://bddyxx7opl5yf" path="res://Assets/Vertical_Liana.png" id="1_q8dm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6nm3"]
+size = Vector2(1185.06, 203.884)
+
+[node name="VerticalLianaStaticBody2D" type="StaticBody2D" groups=["grabbable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2148, 777)
+rotation = 1.309
+scale = Vector2(0.581489, 0.578046)
+texture = ExtResource("1_q8dm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2109.57, 776.268)
+rotation = 1.309
+shape = SubResource("RectangleShape2D_w6nm3")

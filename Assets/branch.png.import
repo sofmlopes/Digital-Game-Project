@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2mbtnkpoel8i"
-path="res://.godot/imported/arvore.png-0040e846edbd4fb8bf5f813571ff0619.ctex"
+uid="uid://kl4aankxvn6o"
+path="res://.godot/imported/branch.png-e3b2bfa2f40cd80c6f9c93753fc74cad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/arvore.png"
-dest_files=["res://.godot/imported/arvore.png-0040e846edbd4fb8bf5f813571ff0619.ctex"]
+source_file="res://Assets/branch.png"
+dest_files=["res://.godot/imported/branch.png-e3b2bfa2f40cd80c6f9c93753fc74cad.ctex"]
 
 [params]
 

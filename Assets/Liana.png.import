@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dku5jfvisoswc"
-path="res://.godot/imported/rb_61450.png-54207921bcd858c08183d13b259a316e.ctex"
+uid="uid://n48ep4pvkjt8"
+path="res://.godot/imported/Liana.png-b267a1e6770492362744f2421ddc26fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rb_61450.png"
-dest_files=["res://.godot/imported/rb_61450.png-54207921bcd858c08183d13b259a316e.ctex"]
+source_file="res://Assets/Liana.png"
+dest_files=["res://.godot/imported/Liana.png-b267a1e6770492362744f2421ddc26fb.ctex"]
 
 [params]
 
