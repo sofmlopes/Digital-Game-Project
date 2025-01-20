@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7lxt560pfye1"]
+
+[ext_resource type="Texture2D" uid="uid://darca1qwns7id" path="res://Assets/Tree_With_Many_Branches.png" id="1_jqb06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrb1t"]
+size = Vector2(1707, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlm2q"]
+size = Vector2(260.741, 72.2254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvidl"]
+size = Vector2(400.784, 41.5693)
+
+[node name="TreeWithManyBranchesStaticBody2D" type="StaticBody2D" groups=["grabbable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2245, 2083)
+scale = Vector2(1, 1.181)
+texture = ExtResource("1_jqb06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2252, 2167.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_hrb1t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2064.78, 1222.85)
+rotation = 0.785397
+shape = SubResource("RectangleShape2D_nlm2q")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(1981.67, 1752.63)
+rotation = 0.523598
+shape = SubResource("RectangleShape2D_lvidl")
+
+[node name="CollisionShape2D4" type="CollisionPolygon2D" parent="."]
+position = Vector2(2563, 2434)
+rotation = -0.523598
+polygon = PackedVector2Array(-223.026, -53.7083, -151.528, -65.5452, -79.4685, -64.3562, -4.57886, -58.0691, 133.371, -35.0044, 142.299, -34.4685, 200.957, -4.06665, 217.777, 6.79932, 227.098, 30.6558, 214.169, 37.0481, 128.629, -0.791504, 27.3923, -23.4448, -64.6575, -20.0095, -147.717, -2.14575, -204.626, 20.4231, -273.571, 71.8391)
