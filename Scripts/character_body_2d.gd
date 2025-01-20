@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 const JUMP_VELOCITY = -400.0
-const ARM_MAX_DISTANCE = 300.0
+const ARM_MAX_DISTANCE = 50.0
 
-const LEFT_ARM_OFFSET = Vector2(-200, -400)
-const RIGHT_ARM_OFFSET = Vector2(200, -400)
+const LEFT_ARM_OFFSET = Vector2(-32, 0)
+const RIGHT_ARM_OFFSET = Vector2(32, 0)
 
 @onready var left_hand = get_node("../LeftHand")
 @onready var right_hand = get_node("../RightHand")

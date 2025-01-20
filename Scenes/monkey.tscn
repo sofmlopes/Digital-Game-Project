@@ -22,12 +22,13 @@ lock_rotation = true
 script = ExtResource("1_5f044")
 
 [node name="Body" type="CollisionShape2D" parent="CharacterBody2D"]
-scale = Vector2(0.4, 0.4)
+position = Vector2(0, 15)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_kdu0q")
 
 [node name="Node2D (Monkey)" type="Node2D" parent="CharacterBody2D"]
-position = Vector2(-205, -200)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-51, -36)
+scale = Vector2(0.1, 0.1)
 
 [node name="polygons" type="Node2D" parent="CharacterBody2D/Node2D (Monkey)"]
 
@@ -92,26 +93,23 @@ rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="LeftHand" type="Sprite2D" parent="."]
-position = Vector2(-335, -192)
+position = Vector2(-32, 0)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_22sga")
 
 [node name="left_collision" type="Area2D" parent="LeftHand"]
-position = Vector2(-2, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/left_collision"]
-position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_0vqks")
 
 [node name="RightHand" type="Sprite2D" parent="."]
-position = Vector2(349, -200)
+position = Vector2(32, 0)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_22sga")
 
 [node name="right_collision" type="Area2D" parent="RightHand"]
-position = Vector2(-4, 28)
-rotation = 1.86576
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/right_collision"]
-position = Vector2(-17.1559, -3.41676)
 shape = SubResource("CapsuleShape2D_0vqks")
 
 [connection signal="body_entered" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_entered"]
