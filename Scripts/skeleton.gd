@@ -6,7 +6,6 @@ var right_arm_index = 6
 var hand_locked = false
 @onready var character_body = self.get_parent().get_parent() # Replace this with the path to your physics node
 @export var max_offset = 300.0
-@export var max_stretch = 200.0  # Maximum arm stretch length
 
 # Movement boundaries for bones (in degrees for rotation)
 @export var arm_rotation_bounds = {
@@ -61,15 +60,6 @@ func _process(_delta):
 	
 	apply_arm_rotation(left_arm_index, left_x)
 	apply_arm_rotation(right_arm_index, right_x)
-
-	# Update spring joint rest length based on joystick input (for stretching)
-	if spring_joint_left:
-		var stretch_factor_left = clamp(left_y, -1.0, 1.0)
-		spring_joint_left.rest_length = max_stretch + (stretch_factor_left * max_stretch * 0.5)
-		
-	if spring_joint_right:
-		var stretch_factor_right = clamp(right_y, -1.0, 1.0)
-		spring_joint_right.rest_length = max_stretch + (stretch_factor_right * max_stretch * 0.5)
 
 func apply_arm_rotation(bone_index, x_input):
 	if bone_index == -1:

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dgev0s0hfb6ju"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_mg2bv"]
-[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/branch.tscn" id="2_osuif"]
 [ext_resource type="PackedScene" uid="uid://depasx1d377l5" path="res://miguel/scenes/simpler_monkey.tscn" id="4_x7kw8"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
 [ext_resource type="PackedScene" uid="uid://c7lxt560pfye1" path="res://Scenes/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
+[ext_resource type="PackedScene" uid="uid://badmelgyk5tvf" path="res://Scenes/rope.tscn" id="7_24f2l"]
 [ext_resource type="PackedScene" uid="uid://clc4ysn8d4p8h" path="res://Scenes/liana_area_2d.tscn" id="7_srf84"]
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/vertical_liana_area_2d.tscn" id="8_6duus"]
 
@@ -21,13 +21,6 @@ motion_mirroring = Vector2(3000, 2000)
 position = Vector2(576, -573)
 scale = Vector2(1, 1.897)
 texture = ExtResource("1_mg2bv")
-
-[node name="BranchNode2D" parent="." instance=ExtResource("2_osuif")]
-position = Vector2(3959, 581)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(3569, 630)
-node_a = NodePath("../BranchNode2D/StaticBody2D")
 
 [node name="TreeStaticBody2D" parent="." instance=ExtResource("5_euoim")]
 position = Vector2(94, -114)
@@ -46,9 +39,10 @@ position = Vector2(17, -170)
 
 [node name="TreeWithManyBranchesStaticBody2D" parent="." instance=ExtResource("7_2n4o5")]
 
-[node name="SimplerMonkey" parent="." instance=ExtResource("4_x7kw8")]
-position = Vector2(2290, 2505)
+[node name="Rope" parent="." instance=ExtResource("7_24f2l")]
 
-[editable path="BranchNode2D"]
+[node name="SimplerMonkey" parent="." instance=ExtResource("4_x7kw8")]
+position = Vector2(2244, 2535)
+
 [editable path="TreeStaticBody2D"]
 [editable path="SimplerMonkey"]

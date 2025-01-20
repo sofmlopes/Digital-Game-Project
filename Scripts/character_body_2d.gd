@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const JUMP_VELOCITY = -400.0
-const ARM_MAX_DISTANCE =100.0
+const ARM_MAX_DISTANCE = 100.0
 
 const LEFT_ARM_OFFSET = Vector2(-200, -400)
 const RIGHT_ARM_OFFSET = Vector2(200, -400)

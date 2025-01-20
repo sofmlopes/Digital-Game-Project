@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://badmelgyk5tvf"]
+
+[ext_resource type="Texture2D" uid="uid://cfunrfdgfie4k" path="res://Assets/Rope.png" id="1_jgsj6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t77gq"]
+radius = 19.105
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6d8k"]
+size = Vector2(1998.13, 54.9354)
+
+[node name="Rope" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2811, 1178)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_t77gq")
+
+[node name="RopeRigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-46, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="RopeRigidBody2D"]
+position = Vector2(3374, 2026)
+rotation = -2.09439
+texture = ExtResource("1_jgsj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeRigidBody2D"]
+position = Vector2(3374.17, 2027.12)
+rotation = 1.0472
+shape = SubResource("RectangleShape2D_j6d8k")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(2811, 1180)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RopeRigidBody2D")
