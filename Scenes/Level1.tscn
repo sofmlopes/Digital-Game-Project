@@ -30,12 +30,17 @@ position = Vector2(3569, 630)
 node_a = NodePath("../BranchNode2D/StaticBody2D")
 
 [node name="TreeStaticBody2D" parent="." instance=ExtResource("5_euoim")]
+position = Vector2(94, -114)
+
+[node name="CollisionShape2D" parent="TreeStaticBody2D" index="3"]
+polygon = PackedVector2Array(-75, -1500.25, -77, -1281.25, -72, -596.25, -92, -514.25, -80, -502.25, -78, -342.25, -65, 282.75, -70, 462.75, -82, 515.75, -63, 519.75, -63, 683.75, -62, 967.75, -53, 1375.75, -21, 1386.75, 92, 1387.75, 93, 1177.75, 88, 921.75, 83, 520.75, 100, 515.75, 88, 268.75, 83, 4.75, 75, -509.25, 93, -506.25, 78, -758.25, 68, -1069.25, 66, -1287.25, 66, -1424.25, 65, -1492.25, 49, -1492.25, 49, -1463.25, 19, -1420.25, -9, -1438.25, 11, -1468.25, -6, -1509.25, -33, -1489.25)
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("6_u28qg")]
 collision_layer = 2
 collision_mask = 2
 
 [node name="LianaStaticBody2D" parent="." instance=ExtResource("7_srf84")]
+position = Vector2(17, -170)
 
 [node name="VerticalLianaArea2D" parent="." instance=ExtResource("8_6duus")]
 
@@ -45,4 +50,5 @@ collision_mask = 2
 position = Vector2(2290, 2505)
 
 [editable path="BranchNode2D"]
+[editable path="TreeStaticBody2D"]
 [editable path="SimplerMonkey"]
