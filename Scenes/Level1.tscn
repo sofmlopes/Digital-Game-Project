@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgev0s0hfb6ju"]
+[gd_scene load_steps=8 format=3 uid="uid://dgev0s0hfb6ju"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_mg2bv"]
 [ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/branch.tscn" id="2_osuif"]
-[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="3_41aje"]
 [ext_resource type="PackedScene" uid="uid://depasx1d377l5" path="res://miguel/scenes/simpler_monkey.tscn" id="4_x7kw8"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
 [ext_resource type="PackedScene" uid="uid://clc4ysn8d4p8h" path="res://Scenes/liana_area_2d.tscn" id="7_srf84"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fg43"]
-size = Vector2(298, 152)
+[ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/vertical_liana_area_2d.tscn" id="8_6duus"]
 
 [node name="Level1" type="Node2D"]
 
@@ -27,34 +24,22 @@ texture = ExtResource("1_mg2bv")
 [node name="BranchNode2D" parent="." instance=ExtResource("2_osuif")]
 position = Vector2(3959, 581)
 
-[node name="Monkey" parent="." instance=ExtResource("3_41aje")]
-position = Vector2(3396, 653)
-
-[node name="CharacterBody2D" parent="Monkey" index="0"]
-position = Vector2(-2, -148)
-
-[node name="Teste" type="RigidBody2D" parent="Monkey"]
-position = Vector2(-92, -213)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monkey/Teste"]
-position = Vector2(543, 244)
-shape = SubResource("RectangleShape2D_3fg43")
-debug_color = Color(0, 0.505882, 0.0823529, 0.745098)
-
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(3569, 630)
 node_a = NodePath("../BranchNode2D/StaticBody2D")
-node_b = NodePath("../Monkey/CharacterBody2D")
 
-[node name="SimplerMonkey" parent="." instance=ExtResource("4_x7kw8")]
-position = Vector2(3304, 440)
-
-[node name="TreeArea2D" parent="." instance=ExtResource("5_euoim")]
+[node name="TreeStaticBody2D" parent="." instance=ExtResource("5_euoim")]
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("6_u28qg")]
+collision_layer = 2
+collision_mask = 2
 
-[node name="LianaArea2D" parent="." instance=ExtResource("7_srf84")]
+[node name="LianaStaticBody2D" parent="." instance=ExtResource("7_srf84")]
+
+[node name="VerticalLianaArea2D" parent="." instance=ExtResource("8_6duus")]
+
+[node name="SimplerMonkey" parent="." instance=ExtResource("4_x7kw8")]
+position = Vector2(525, 2919)
 
 [editable path="BranchNode2D"]
-[editable path="Monkey"]
 [editable path="SimplerMonkey"]

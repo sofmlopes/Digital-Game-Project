@@ -6,7 +6,7 @@
 radius = 97.0
 height = 1538.0
 
-[node name="LianaArea2D" type="Area2D"]
+[node name="LianaStaticBody2D" type="StaticBody2D" groups=["grabbable"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1276, 224)

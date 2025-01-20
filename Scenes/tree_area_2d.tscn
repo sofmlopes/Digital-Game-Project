@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay70d"]
 size = Vector2(192, 3120.5)
 
-[node name="TreeArea2D" type="Area2D"]
+[node name="TreeStaticBody2D" type="StaticBody2D" groups=["grabbable"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(662, 2759)
