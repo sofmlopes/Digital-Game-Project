@@ -91,6 +91,7 @@ rotation = 1.86576
 rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
 
 [node name="LeftHand" type="Sprite2D" parent="."]
 position = Vector2(-32, 0)
