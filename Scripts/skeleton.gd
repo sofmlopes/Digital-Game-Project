@@ -110,65 +110,29 @@ func apply_arm_offset(bone_index, offset):
 
 
 # Grab event handler: Handle spring joint creation/removal
-func _on_grab_event(hand_id: Variant, grabbing: Variant, grabbed_platform: Node2D) -> void:
-	if grabbing:
-		print(hand_id, "hand is grabbing!")
-		lock_hand(hand_id)
-		#_create_spring_joint(hand_id, grabbed_platform)
-	else:
-		print(hand_id, "hand released!")
-		#_remove_spring_joint(hand_id)
-
-func lock_hand(hand_name: String):
-	var hand_index = -1
-	if hand_name == "left":
-		hand_index = 4  # Replace with the actual bone index for the left hand
-	elif hand_name == "right":
-		hand_index = 7  # Replace with the actual bone index for the right hand
-	
-	if hand_index != -1:
-		var current_pose = get_bone_local_pose_override(hand_index)
-		if current_pose == null:
-			current_pose = Transform2D()  # Default pose if not overridden
-		# Lock the hand by setting a persistent local pose override
-		set_bone_local_pose_override(hand_index, current_pose, 1.0, true)
-
-func disable_gravity():
-	character_body.velocity = Vector2.ZERO  # Stops any movement from velocity
-	character_body.move_and_slide()
-
-#func _create_spring_joint(hand_id: String, grabbed_platform: Node2D):
-	## Create and configure the spring joint for the hand (either left or right)
+#func _on_grab_event(hand_id: Variant, grabbing: Variant, grabbed_platform: Node2D) -> void:
+	#if grabbing:
+		#print(hand_id, "hand is grabbing!")
+		#lock_hand(hand_id)
+		##_create_spring_joint(hand_id, grabbed_platform)
+	#else:
+		#print(hand_id, "hand released!")
+		##_remove_spring_joint(hand_id)
+#
+#func lock_hand(hand_name: String):
 	#var hand_index = -1
-	#if hand_id == "left":
+	#if hand_name == "left":
 		#hand_index = 4  # Replace with the actual bone index for the left hand
-	#elif hand_id == "right":
+	#elif hand_name == "right":
 		#hand_index = 7  # Replace with the actual bone index for the right hand
-	#var hand_bone_node = get_node("chest/shoulders/upperarm_left/forearm_left/hand_left/RigidBody2D") # Retrieve the bone node for the hand
 	#
-	## Create a new DampedSpringJoint2D
-	#var spring_joint = DampedSpringJoint2D.new()
-	#spring_joint.set_node_a(hand_bone_node.get_path())
-	#print(hand_bone_node.get_path())
-	#spring_joint.set_node_b(grabbed_platform.get_path())
-	#print(grabbed_platform.get_path())
-	#spring_joint.set_rest_length(max_stretch)  # Initial length
-	#spring_joint.set_stiffness(500)  # Adjust stiffness
-	#spring_joint.set_damping(10)  # Adjust damping for realistic spring behavior
+	#if hand_index != -1:
+		#var current_pose = get_bone_local_pose_override(hand_index)
+		#if current_pose == null:
+			#current_pose = Transform2D()  # Default pose if not overridden
+		## Lock the hand by setting a persistent local pose override
+		#set_bone_local_pose_override(hand_index, current_pose, 1.0, true)
 #
-	## Add the joint as a child to the skeleton or the character body
-	#character_body.add_child(spring_joint)
-#
-	## Store reference to the joint for later updates/removal
-	#if hand_id == "left":
-		#spring_joint_left = spring_joint
-	#elif hand_id == "right":
-		#spring_joint_right = spring_joint
-#
-#func _remove_spring_joint(hand_id: String):
-	#if hand_id == "left" and spring_joint_left:
-		#spring_joint_left.queue_free()
-		#spring_joint_left = null
-	#elif hand_id == "right" and spring_joint_right:
-		#spring_joint_right.queue_free()
-		#spring_joint_right = null
+#func disable_gravity():
+	#character_body.velocity = Vector2.ZERO  # Stops any movement from velocity
+	#character_body.move_and_slide()
