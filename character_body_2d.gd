@@ -1,53 +1,108 @@
 extends RigidBody2D
 
-const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const ARM_MAX_DISTANCE =100.0
 
-@onready var spring_joint_left = null
-@onready var spring_joint_right = null
-@export var max_stretch = 1
-@export var spring_stiffness = 1000
-@export var spring_damping = 1
+const LEFT_ARM_OFFSET = Vector2(-200, -400)
+const RIGHT_ARM_OFFSET = Vector2(200, -400)
 
-#func _physics_process(delta: float) -> void:
-	## Use gravity only if no hands are grabbing
-	#velocity += Vector2(1,1) * delta  # Apply gravity to the whole velocity vector
-	#move_and_slide()
+@onready var left_hand = get_node("../LeftHand")
+@onready var right_hand = get_node("../RightHand")
 
+var left_arm_axis = Vector2.ZERO
+var right_arm_axis = Vector2.ZERO
 
+var left_hand_can_grab = null
+var right_hand_can_grab = null
 
-# Called when grabbing starts or stops (from hand script)
-func handle_grab_event(hand_id, grabbing, grabbed_platform):
-	if grabbing:
-		create_spring_joint(hand_id, grabbed_platform)
+var is_left_grabbing = false
+var is_right_grabbing = false
+
+@onready var skeleton = $"Node2D (Monkey)/skeleton"
+@onready var left_hand_bone = 4
+@onready var right_hand_bone = 7
+
+func _process(delta: float) -> void:
+	
+	var left_x = Input.get_axis("move_leftarm_left", "move_leftarm_right")
+	var left_y = Input.get_axis("move_leftarm_up", "move_leftarm_down")
+	
+	var right_x = Input.get_axis("move_rightarm_left", "move_rightarm_right")
+	var right_y = Input.get_axis("move_rightarm_up", "move_rightarm_down")
+	
+	left_arm_axis = Vector2(left_x, left_y) * ARM_MAX_DISTANCE
+	
+	right_arm_axis = Vector2(right_x, right_y) * ARM_MAX_DISTANCE
+	
+	if Input.is_action_pressed("grab_left") and left_hand_can_grab != null and is_left_grabbing == false: #need to save which object it was
+		print("idk")
+		is_left_grabbing = true
+	elif Input.is_action_just_released("grab_left"):
+		is_left_grabbing = false
+		
+	if Input.is_action_pressed("grab_right") and right_hand_can_grab != null and is_right_grabbing == false: #need to save which object it was
+		print("idk")
+		is_right_grabbing = true
+	elif Input.is_action_just_released("grab_right"):
+		is_right_grabbing = false
+
+func _physics_process(delta: float) -> void:
+	# Gravity
+	#if not is_on_floor():
+		#velocity += get_gravity() * delta
+
+	# Left Hand
+	if !is_left_grabbing:
+		var left_hand_offset = left_arm_axis
+		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
 	else:
-		remove_spring_joint(hand_id)
+		var left_hand_offset = left_arm_axis
+		pull_player_to_hand(left_arm_axis, left_hand, LEFT_ARM_OFFSET)
 
-func create_spring_joint(hand_id, grabbed_platform):
-	if hand_id == "left" and !spring_joint_left:
-		spring_joint_left = DampedSpringJoint2D.new()
-		#spring_joint_left.set_rest_length(0)
-		#spring_joint_left.set_stiffness(10000)
-		#spring_joint_left.set_damping(500)
-		spring_joint_left.set_node_a($"Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/HandBody".get_path())   # Path to hand body
-		spring_joint_left.set_node_b(grabbed_platform.get_path())  # The grabbed platform
-		$"Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/HandBody".add_child(spring_joint_left)  # Add the spring joint to the character body
-		print("devia funcionar")
+	# Right Hand
+	if !is_right_grabbing:
+		var right_hand_offset = right_arm_axis
+		right_hand.global_position = self.global_position + right_hand_offset + RIGHT_ARM_OFFSET
+	else:
+		var right_hand_offset = right_arm_axis
+		pull_player_to_hand(right_arm_axis, right_hand, RIGHT_ARM_OFFSET)
 
-	#elif hand_id == "right" and !spring_joint_right:
-		#spring_joint_right = DampedSpringJoint2D.new()
-		#spring_joint_right.node_a = $Skeleton2D/hand_right  # The hand bone
-		#spring_joint_right.node_b = grabbed_platform  # The grabbed platform
-		#spring_joint_right.rest_length = max_stretch
-		#spring_joint_right.stiffness = spring_stiffness
-		#spring_joint_right.damping = spring_damping
-		#add_child(spring_joint_right)  # Add the spring joint to the character body
 
-func remove_spring_joint(hand_id):
-	pass
-	#if hand_id == "left" and spring_joint_left:
-		#spring_joint_left.queue_free()  # Remove the spring joint
-		#spring_joint_left = null
-	#elif hand_id == "right" and spring_joint_right:
-		#spring_joint_right.queue_free()  # Remove the spring joint
-		#spring_joint_right = null
+func pull_player_to_hand(hand_axis, hand, arm_offset):
+	var hand_offset = hand_axis
+	var target_position = hand.global_position - hand_offset - arm_offset
+	var current_position = self.global_position
+	var direction: Vector2 = (target_position - current_position)
+	var distance = direction.length()
+
+	# Velocity dampening
+	var velocity_damping = 0.95  # Slowly reduce velocity to avoid overshooting
+	linear_velocity *= velocity_damping
+
+	if distance > 0.1:  # Only apply force if not close enough
+		var target_velocity = direction * distance * 0.5  # Desired velocity toward the target
+		var velocity_difference = target_velocity - linear_velocity  # Difference between current and target velocity
+
+		# Apply force based on velocity difference
+		var max_force = 10.0  # Limit the maximum force
+		var force = velocity_difference
+		self.apply_impulse(force, Vector2(0, 0))
+	else:
+		# Stop completely when close to the target
+		linear_velocity = Vector2.ZERO
+
+func _on_lefthand_body_entered(body: Node2D) -> void:
+	left_hand_can_grab = body
+	print("LeftHand can grab")
+
+func _on_lefthand_body_exited(body: Node2D) -> void:
+	left_hand_can_grab = null
+	print("LeftHand cant grab")
+
+func _on_righthand_body_entered(body: Node2D) -> void:
+	right_hand_can_grab = body
+	print("RightHand can grab")
+
+func _on_righthand_body_exited(body: Node2D) -> void:
+	right_hand_can_grab = null
+	print("RightHand cant grab")

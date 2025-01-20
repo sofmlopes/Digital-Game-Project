@@ -50,7 +50,7 @@ texture = ExtResource("3_h24la")
 position = Vector2(655, 141)
 
 [node name="Monkey" parent="." instance=ExtResource("6_j84p7")]
-position = Vector2(92, 213)
+position = Vector2(524, 680)
 
 [node name="CharacterBody2D" parent="Monkey" index="0"]
 position = Vector2(-2, -148)
@@ -64,9 +64,9 @@ shape = SubResource("RectangleShape2D_3fg43")
 debug_color = Color(0, 0.505882, 0.0823529, 0.745098)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(265, 190)
+position = Vector2(266, 190)
 node_a = NodePath("../Node2D/StaticBody2D")
-node_b = NodePath("../Monkey/CharacterBody2D")
+node_b = NodePath("../Monkey/CharacterBody2D/Node2D (Monkey)/skeleton/chest/shoulders/upperarm_left/forearm_left/hand_left/HandBody")
 
 [editable path="Node2D"]
 [editable path="Monkey"]
