@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgev0s0hfb6ju"]
 
-[ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/21449237_6484339.jpg" id="1_dychp"]
-[ext_resource type="Texture2D" uid="uid://c2mbtnkpoel8i" path="res://Assets/arvore.png" id="2_dp8f6"]
-[ext_resource type="Texture2D" uid="uid://cjbj34f3s751b" path="res://Assets/rb_4538.png" id="3_h24la"]
-[ext_resource type="Texture2D" uid="uid://cf63lc677l2ah" path="res://Assets/tronco.png" id="3_t2t56"]
-[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://monkey.tscn" id="6_j84p7"]
-[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://branch.tscn" id="6_rqx52"]
+[ext_resource type="Texture2D" path="res://Assets/21449237_6484339.jpg" id="1_dychp"]
+[ext_resource type="Texture2D" path="res://Assets/arvore.png" id="2_dp8f6"]
+[ext_resource type="Texture2D" path="res://Assets/rb_4538.png" id="3_h24la"]
+[ext_resource type="Texture2D" path="res://Assets/tronco.png" id="3_t2t56"]
+[ext_resource type="PackedScene" uid="uid://bmx1d6nmqb0yp" path="res://monkey.tscn" id="6_j84p7"]
+[ext_resource type="PackedScene" uid="uid://64uy8nvwlr" path="res://branch.tscn" id="6_rqx52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fg43"]
 size = Vector2(298, 152)
