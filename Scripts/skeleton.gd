@@ -1,10 +1,10 @@
 extends Skeleton2D
 
 const JUMP_VELOCITY = -400.0
-const ARM_MAX_DISTANCE = 300.0
+const ARM_MAX_DISTANCE = 40.0
 
-const LEFT_ARM_OFFSET = Vector2(-200, -400)
-const RIGHT_ARM_OFFSET = Vector2(200, -400)
+const LEFT_ARM_OFFSET = Vector2(25, 40)
+const RIGHT_ARM_OFFSET = Vector2(76, 40)
 
 var left_arm_axis = Vector2.ZERO
 var right_arm_axis = Vector2.ZERO

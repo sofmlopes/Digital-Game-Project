@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
 [ext_resource type="PackedScene" uid="uid://c7lxt560pfye1" path="res://Scenes/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
-[ext_resource type="PackedScene" uid="uid://badmelgyk5tvf" path="res://Scenes/rope.tscn" id="7_24f2l"]
+[ext_resource type="PackedScene" path="res://Scenes/rope.tscn" id="7_24f2l"]
 [ext_resource type="PackedScene" uid="uid://clc4ysn8d4p8h" path="res://Scenes/liana_area_2d.tscn" id="7_srf84"]
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/vertical_liana_area_2d.tscn" id="8_6duus"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
@@ -42,7 +42,7 @@ position = Vector2(17, -170)
 [node name="Rope" parent="." instance=ExtResource("7_24f2l")]
 
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(730, 2707)
+position = Vector2(743, 2974)
 scale = Vector2(0.6, 0.6)
 
 [editable path="TreeStaticBody2D"]
