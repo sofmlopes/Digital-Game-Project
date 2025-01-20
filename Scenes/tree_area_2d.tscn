@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dafr185s33wep"]
 
-[ext_resource type="Texture2D" uid="uid://cf63lc677l2ah" path="res://Assets/tronco.png" id="1_cu5vx"]
+[ext_resource type="Texture2D" uid="uid://cf63lc677l2ah" path="res://Assets/BranchOfTree.png" id="1_cu5vx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay70d"]
 size = Vector2(192, 3120.5)

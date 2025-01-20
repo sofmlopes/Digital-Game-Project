@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq74vaoksrpib"
-path="res://.godot/imported/21449237_6484339.jpg-70798b91954cd2d1c9be5d81d2a01bdd.ctex"
+uid="uid://cf63lc677l2ah"
+path="res://.godot/imported/BranchOfTree.png-8265bc47a6eb88e8bae9aaa534329c79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/21449237_6484339.jpg"
-dest_files=["res://.godot/imported/21449237_6484339.jpg-70798b91954cd2d1c9be5d81d2a01bdd.ctex"]
+source_file="res://Assets/BranchOfTree.png"
+dest_files=["res://.godot/imported/BranchOfTree.png-8265bc47a6eb88e8bae9aaa534329c79.ctex"]
 
 [params]
 
