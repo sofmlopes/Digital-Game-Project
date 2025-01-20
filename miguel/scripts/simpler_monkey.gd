@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 		var left_hand_offset = left_arm_axis
 		left_hand.global_position = self.global_position + left_hand_offset + LEFT_ARM_OFFSET
 	else:
-		var left_hand_offset = left_arm_axis
 		pull_player_to_hand(left_arm_axis, left_hand, LEFT_ARM_OFFSET)
 
 	# Right Hand
@@ -60,7 +59,6 @@ func _physics_process(delta: float) -> void:
 		var right_hand_offset = right_arm_axis
 		right_hand.global_position = self.global_position + right_hand_offset + RIGHT_ARM_OFFSET
 	else:
-		var right_hand_offset = right_arm_axis
 		pull_player_to_hand(right_arm_axis, right_hand, RIGHT_ARM_OFFSET)
 
 
@@ -80,7 +78,7 @@ func pull_player_to_hand(hand_axis, hand, arm_offset):
 		var velocity_difference = target_velocity - linear_velocity  # Difference between current and target velocity
 
 		# Apply force based on velocity difference
-		var max_force = 10.0  # Limit the maximum force
+		#var max_force = 10.0  # Limit the maximum force
 		var force = velocity_difference
 		self.apply_impulse(force, Vector2(0, 0))
 	else:
