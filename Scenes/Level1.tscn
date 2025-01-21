@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2scrdi6b375h"]
+[gd_scene load_steps=11 format=3 uid="uid://d2scrdi6b375h"]
 
-[ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_mg2bv"]
+[ext_resource type="Texture2D" uid="uid://bwr2iwlao8yb6" path="res://Assets/junglebackground2.jpg" id="1_k52o2"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
 [ext_resource type="PackedScene" uid="uid://c7lxt560pfye1" path="res://Scenes/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
-[ext_resource type="PackedScene" uid="uid://badmelgyk5tvf" path="res://Scenes/rope.tscn" id="7_24f2l"]
 [ext_resource type="PackedScene" uid="uid://clc4ysn8d4p8h" path="res://Scenes/liana_area_2d.tscn" id="7_srf84"]
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/vertical_liana_area_2d.tscn" id="8_6duus"]
+[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/branch.tscn" id="8_25xq1"]
+[ext_resource type="PackedScene" uid="uid://05y42k8t1b1b" path="res://Scenes/plaque.tscn" id="9_3sie5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
+[ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/arrow.tscn" id="9_p30hh"]
 
 [node name="Level1" type="Node2D"]
+position = Vector2(-2738, 360)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -18,31 +21,79 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(3000, 2000)
 
 [node name="Sprite2DBackgroundBlue" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBackgroundBlue"]
-position = Vector2(576, -573)
-scale = Vector2(1, 1.897)
-texture = ExtResource("1_mg2bv")
+scale = Vector2(0.871817, 0.530911)
+texture = ExtResource("1_k52o2")
 
-[node name="TreeStaticBody2D" parent="." instance=ExtResource("5_euoim")]
-position = Vector2(94, -114)
+[node name="Tree" parent="." instance=ExtResource("5_euoim")]
+position = Vector2(2130, -1459)
+scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" parent="TreeStaticBody2D" index="3"]
-polygon = PackedVector2Array(-75, -1500.25, -77, -1281.25, -72, -596.25, -92, -514.25, -80, -502.25, -78, -342.25, -65, 282.75, -70, 462.75, -82, 515.75, -63, 519.75, -63, 683.75, -62, 967.75, -53, 1375.75, -21, 1386.75, 92, 1387.75, 93, 1177.75, 88, 921.75, 83, 520.75, 100, 515.75, 88, 268.75, 83, 4.75, 75, -509.25, 93, -506.25, 78, -758.25, 68, -1069.25, 66, -1287.25, 66, -1424.25, 65, -1492.25, 49, -1492.25, 49, -1463.25, 19, -1420.25, -9, -1438.25, 11, -1468.25, -6, -1509.25, -33, -1489.25)
+[node name="Tree2" parent="." instance=ExtResource("5_euoim")]
+position = Vector2(12, -1687)
+rotation = 0.263111
+scale = Vector2(0.5, 0.5)
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("6_u28qg")]
+position = Vector2(-1662, 63)
+collision_layer = 2
+collision_mask = 2
+
+[node name="GrassStaticBody2D2" parent="." instance=ExtResource("6_u28qg")]
+position = Vector2(-7739, 63)
 collision_layer = 2
 collision_mask = 2
 
 [node name="LianaStaticBody2D" parent="." instance=ExtResource("7_srf84")]
-position = Vector2(17, -170)
+position = Vector2(376, -143)
+
+[node name="LianaStaticBody2D2" parent="." instance=ExtResource("7_srf84")]
+position = Vector2(-1437, -1915)
+rotation = 0.84817
+
+[node name="LianaStaticBody2D3" parent="." instance=ExtResource("7_srf84")]
+position = Vector2(-1510, -1754)
+rotation = 1.59806
 
 [node name="VerticalLianaArea2D" parent="." instance=ExtResource("8_6duus")]
+position = Vector2(3191, 1694)
+rotation = 3.19473
+
+[node name="VerticalLianaArea2D2" parent="." instance=ExtResource("8_6duus")]
+position = Vector2(2282, -3469)
+rotation = 1.84798
 
 [node name="TreeWithManyBranchesStaticBody2D" parent="." instance=ExtResource("7_2n4o5")]
+position = Vector2(-1543, 160)
 
-[node name="Rope" parent="." instance=ExtResource("7_24f2l")]
+[node name="TreeWithManyBranchesStaticBody2D2" parent="." instance=ExtResource("7_2n4o5")]
+position = Vector2(-4859, -3789)
+
+[node name="Branch" parent="." instance=ExtResource("8_25xq1")]
+position = Vector2(2433, -1521)
+
+[node name="Branch2" parent="." instance=ExtResource("8_25xq1")]
+position = Vector2(1864, -1566)
+rotation = -2.37638
+
+[node name="Branch3" parent="." instance=ExtResource("8_25xq1")]
+position = Vector2(-1489, -1643)
+rotation = -2.61631
+
+[node name="Arrow" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(-1808, -1653)
+rotation = -1.56935
+
+[node name="Arrow2" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(-2002, -550)
+rotation = 0.50529
+
+[node name="Plaque" parent="." instance=ExtResource("9_3sie5")]
+position = Vector2(-3691, -2925)
+
+[node name="Branch4" parent="." instance=ExtResource("8_25xq1")]
+position = Vector2(-3453, -2760)
+rotation = 3.17659
 
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(743, 2974)
+position = Vector2(723, 2939)
 scale = Vector2(0.6, 0.6)
-
-[editable path="TreeStaticBody2D"]

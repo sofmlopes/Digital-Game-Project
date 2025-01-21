@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr857d7qhqci8"]
+
+[ext_resource type="Texture2D" uid="uid://sqprcv2tjod6" path="res://Assets/arrow.png" id="1_ki46d"]
+
+[node name="Arrow" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ki46d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.1, 0.1)
+polygon = PackedVector2Array(-237, -432.5, -237, -425.9, -841, -78.9, -841, -71.5, -181, 422.5, -181, 425, -167.5, 428, -162.2, 428, -118.1, 392, -114.3, 392, -100, 168.2, -100, 154.6, 8.5, 145.4, 6.09998, 150.8, 12, 157.7, 12, 160.6, 798, 412.6, 798, 416.1, 813.5, 413, 817.5, 413, 838.5, 355, 841.1, 355, 834, -280.1, 834, -333, 775, -397, 775, -398.9, 769.8, -401.8, 549.2, -264.1, 566, -330.4, 566, -346, 518.3, -372, 512.4, -372, -135.5, -214.6, -149, -378.4, -149, -384)

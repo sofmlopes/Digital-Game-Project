@@ -18,6 +18,7 @@ height = 104.0
 [node name="CharacterBody2D" type="RigidBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+can_sleep = false
 lock_rotation = true
 script = ExtResource("1_5f044")
 
@@ -91,7 +92,8 @@ rotation = 1.86576
 rest = Transform2D(-0.290702, 0.956814, -0.956814, -0.290702, 73, -252)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
 
 [node name="LeftHand" type="Sprite2D" parent="."]
 position = Vector2(-32, 0)

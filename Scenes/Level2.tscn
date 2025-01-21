@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxxtamywet11r"]
+[gd_scene load_steps=8 format=3 uid="uid://bpls2sg6p8cwb"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_ybec1"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="2_cq72t"]
-[ext_resource type="PackedScene" uid="uid://ow2y5q3ttdp8" path="res://Scenes/building_static_body_2d.tscn" id="3_dpfn6"]
+[ext_resource type="PackedScene" path="res://Scenes/building_static_body_2d.tscn" id="3_dpfn6"]
 [ext_resource type="PackedScene" uid="uid://bhvu485kq6xwe" path="res://Scenes/crane_static_body_2d.tscn" id="4_umjpq"]
-[ext_resource type="PackedScene" uid="uid://c7i8vendyq75f" path="res://Scenes/black_building_static_body_2d.tscn" id="5_lji0o"]
-[ext_resource type="PackedScene" uid="uid://bt5g8vvovoh0o" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
+[ext_resource type="PackedScene" path="res://Scenes/black_building_static_body_2d.tscn" id="5_lji0o"]
+[ext_resource type="PackedScene" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
 
 [node name="Level2" type="Node2D"]
