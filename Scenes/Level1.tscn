@@ -84,16 +84,20 @@ position = Vector2(-1808, -1653)
 rotation = -1.56935
 
 [node name="Arrow2" parent="." instance=ExtResource("9_p30hh")]
-position = Vector2(-2002, -550)
-rotation = 0.50529
+position = Vector2(-1964, -550)
+rotation = 0.66347
+
+[node name="Arrow3" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(-1314, -1282)
+rotation = 1.05346
 
 [node name="Plaque" parent="." instance=ExtResource("9_3sie5")]
-position = Vector2(-3691, -2925)
+position = Vector2(-3807, -2925)
 
 [node name="Branch4" parent="." instance=ExtResource("8_25xq1")]
-position = Vector2(-3453, -2760)
+position = Vector2(-3548, -2768)
 rotation = 3.17659
 
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(723, 2939)
+position = Vector2(-2626, -2424)
 scale = Vector2(0.6, 0.6)
