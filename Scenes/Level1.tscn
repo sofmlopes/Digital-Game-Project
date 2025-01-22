@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2scrdi6b375h"]
+[gd_scene load_steps=15 format=3 uid="uid://d2scrdi6b375h"]
 
 [ext_resource type="Texture2D" uid="uid://bwr2iwlao8yb6" path="res://Assets/junglebackground2.jpg" id="1_k52o2"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_paxg3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
+[ext_resource type="PackedScene" uid="uid://4vhupvjgk7" path="res://Scenes/rocks.tscn" id="12_rbv3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
 size = Vector2(207, 122)
@@ -97,6 +98,14 @@ rotation = 0.66347
 position = Vector2(-1314, -1282)
 rotation = 1.05346
 
+[node name="Arrow4" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(409, -1714)
+rotation = -1.09711
+
+[node name="Arrow5" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(-2673, -2466)
+rotation = 0.842728
+
 [node name="Plaque" parent="." instance=ExtResource("9_3sie5")]
 position = Vector2(-3791, -2937)
 
@@ -113,8 +122,12 @@ shape = SubResource("RectangleShape2D_hdf2k")
 position = Vector2(-3548, -2768)
 rotation = 3.17659
 
+[node name="Rocks" parent="." instance=ExtResource("12_rbv3k")]
+position = Vector2(-670, 881)
+rotation = -2.50632
+
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(-3687, -2818)
+position = Vector2(739, 2153)
 scale = Vector2(0.6, 0.6)
 
 [connection signal="body_entered" from="Plaque/Area2D" to="Plaque/Area2D" method="_on_body_entered"]
