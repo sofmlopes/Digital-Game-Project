@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2scrdi6b375h"]
+[gd_scene load_steps=14 format=3 uid="uid://d2scrdi6b375h"]
 
 [ext_resource type="Texture2D" uid="uid://bwr2iwlao8yb6" path="res://Assets/junglebackground2.jpg" id="1_k52o2"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_paxg3"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
 [ext_resource type="PackedScene" uid="uid://c7lxt560pfye1" path="res://Scenes/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
@@ -10,9 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://05y42k8t1b1b" path="res://Scenes/plaque.tscn" id="9_3sie5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/arrow.tscn" id="9_p30hh"]
+[ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
+size = Vector2(207, 122)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-2738, 360)
+script = ExtResource("1_paxg3")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -92,12 +98,22 @@ position = Vector2(-1314, -1282)
 rotation = 1.05346
 
 [node name="Plaque" parent="." instance=ExtResource("9_3sie5")]
-position = Vector2(-3807, -2925)
+position = Vector2(-3791, -2937)
+
+[node name="Area2D" type="Area2D" parent="Plaque"]
+script = ExtResource("10_bduhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaque/Area2D"]
+position = Vector2(-3.5, -55)
+shape = SubResource("RectangleShape2D_hdf2k")
 
 [node name="Branch4" parent="." instance=ExtResource("8_25xq1")]
 position = Vector2(-3548, -2768)
 rotation = 3.17659
 
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(-2626, -2424)
+position = Vector2(719, 3047)
 scale = Vector2(0.6, 0.6)
+
+[connection signal="body_entered" from="Plaque/Area2D" to="Plaque/Area2D" method="_on_body_entered"]
+[connection signal="level_complete" from="Plaque/Area2D" to="." method="_on_level_complete"]

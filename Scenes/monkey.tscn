@@ -15,8 +15,7 @@ height = 104.0
 
 [node name="Monkey" type="Node2D"]
 
-[node name="CharacterBody2D" type="RigidBody2D" parent="."]
-collision_layer = 2
+[node name="CharacterBody2D" type="RigidBody2D" parent="." groups=["monkey"]]
 collision_mask = 2
 can_sleep = false
 lock_rotation = true
