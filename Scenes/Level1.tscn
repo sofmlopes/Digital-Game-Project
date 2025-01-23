@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://d2scrdi6b375h"]
 
-[ext_resource type="Texture2D" uid="uid://c658eq8vv5kx6" path="res://Assets/junglebackground.jpg" id="1_k52o2"]
+[ext_resource type="Texture2D" uid="uid://bwr2iwlao8yb6" path="res://Assets/junglebackground2.jpg" id="1_k52o2"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_paxg3"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="6_u28qg"]
