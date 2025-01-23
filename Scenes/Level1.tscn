@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
 [ext_resource type="PackedScene" uid="uid://4vhupvjgk7" path="res://Scenes/rocks.tscn" id="12_rbv3k"]
-[ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/adventure-game-262423.mp3" id="14_w08uu"]
+[ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/Music/adventure-game-262423.mp3" id="14_w08uu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
 size = Vector2(207, 122)
