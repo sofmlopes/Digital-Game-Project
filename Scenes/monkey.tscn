@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=8 format=3 uid="uid://b16ttdwsw553e"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_5f044"]
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://miguel/sprites/macaco.png" id="1_eelxn"]
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="2_pqmiu"]
 [ext_resource type="Texture2D" uid="uid://bfrpq0lolw4vn" path="res://Assets/Red-Circle-Transparent.png" id="4_664yh"]
+[ext_resource type="AudioStream" uid="uid://bh4t4qy5awkf4" path="res://Sounds/sfx/lighter-click-271118.mp3" id="5_71m0e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
 radius = 238.0
@@ -103,10 +104,17 @@ drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
+[node name="AudioListener2D" type="AudioListener2D" parent="CharacterBody2D"]
+current = true
+
 [node name="LeftHand" type="Sprite2D" parent="."]
 position = Vector2(-32, 0)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("4_664yh")
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="LeftHand"]
+scale = Vector2(50, 50)
+stream = ExtResource("5_71m0e")
 
 [node name="left_collision" type="Area2D" parent="LeftHand"]
 scale = Vector2(5, 5)
@@ -119,6 +127,10 @@ modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(32, 0)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("4_664yh")
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="RightHand"]
+position = Vector2(0, -50)
+scale = Vector2(50, 50)
 
 [node name="right_collision" type="Area2D" parent="RightHand"]
 scale = Vector2(5, 5)
