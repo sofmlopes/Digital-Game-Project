@@ -6,8 +6,12 @@ const ARM_MAX_DISTANCE = 40.0
 const LEFT_ARM_OFFSET = Vector2(-32, -22)
 const RIGHT_ARM_OFFSET = Vector2(32, -22)
 
+const RESET_HOLD_DURATION: float = 2.0 
+
 const DEFAULT_ZOOM = 2.5
 const REDUCED_ZOOM = 1.5
+
+var reset_hold_time: float = 0.0
 
 @onready var left_hand = get_node("../LeftHand")
 @onready var right_hand = get_node("../RightHand")
@@ -73,6 +77,15 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released("grab_right"):
 		is_right_grabbing = false
 		right_grab_notifier.grabbing = false
+		
+	# Check reset action hold time
+	if Input.is_action_pressed("reset_level"):
+		reset_hold_time += delta
+		if reset_hold_time >= RESET_HOLD_DURATION:
+			die()  # Trigger the reset
+			reset_hold_time = 0.0  # Reset the hold time
+	else:
+		reset_hold_time = 0.0  # Reset the counter if not holding
 
 func _physics_process(delta: float) -> void:
 	# Gravity

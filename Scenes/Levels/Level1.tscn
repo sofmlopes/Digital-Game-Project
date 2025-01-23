@@ -145,13 +145,13 @@ position = Vector2(-2517, 3716)
 position = Vector2(-6826, -5678)
 
 [node name="CollisionShape2D" parent="DeathArea/Area2D" index="0"]
-position = Vector2(56, -834)
+position = Vector2(49, 177)
 
 [node name="DeathArea2" parent="." instance=ExtResource("14_jqqrd")]
 position = Vector2(-5034, 7432)
 
 [node name="CollisionShape2D" parent="DeathArea2/Area2D" index="0"]
-position = Vector2(9040, -10228.9)
+position = Vector2(9047, -9227.97)
 
 [node name="DeathArea3" parent="." instance=ExtResource("14_jqqrd")]
 position = Vector2(-2517, 3716)
