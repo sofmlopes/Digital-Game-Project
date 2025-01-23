@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2scrdi6b375h"]
+[gd_scene load_steps=19 format=3 uid="uid://d2scrdi6b375h"]
 
 [ext_resource type="Texture2D" uid="uid://c658eq8vv5kx6" path="res://Assets/junglebackground.jpg" id="1_k52o2"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_paxg3"]
@@ -13,10 +13,17 @@
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
 [ext_resource type="PackedScene" uid="uid://4vhupvjgk7" path="res://Scenes/Objects/rocks.tscn" id="12_rbv3k"]
+[ext_resource type="PackedScene" uid="uid://cqnituqkbeq0u" path="res://Scenes/death_area.tscn" id="14_jqqrd"]
 [ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/Music/adventure-game-262423.mp3" id="14_w08uu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
 size = Vector2(207, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m12e4"]
+size = Vector2(8932, 152.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07av8"]
+size = Vector2(2178.75, 163)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-2738, 360)
@@ -131,6 +138,34 @@ rotation = -2.50632
 position = Vector2(739, 2153)
 scale = Vector2(0.6, 0.6)
 
+[node name="DeathArea" parent="." instance=ExtResource("14_jqqrd")]
+position = Vector2(-2517, 3716)
+
+[node name="CollisionShape2D" parent="DeathArea/Area2D" index="0"]
+position = Vector2(-6765, -8782.5)
+
+[node name="DeathArea2" parent="." instance=ExtResource("14_jqqrd")]
+position = Vector2(10955, 4004)
+
+[node name="CollisionShape2D" parent="DeathArea2/Area2D" index="0"]
+position = Vector2(-6947, -9079)
+
+[node name="DeathArea3" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="DeathArea3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea3/Area2D"]
+position = Vector2(-4244, 3001.25)
+shape = SubResource("RectangleShape2D_m12e4")
+
+[node name="DeathArea4" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="DeathArea4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea4/Area2D"]
+position = Vector2(2344.38, 2992)
+shape = SubResource("RectangleShape2D_07av8")
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_w08uu")
 volume_db = -6.0
@@ -139,3 +174,6 @@ parameters/looping = true
 
 [connection signal="body_entered" from="Plaque/Area2D" to="Plaque/Area2D" method="_on_body_entered"]
 [connection signal="level_complete" from="Plaque/Area2D" to="." method="_on_level_complete"]
+
+[editable path="DeathArea"]
+[editable path="DeathArea2"]
