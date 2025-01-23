@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://buktwex1bo3nx"]
+
+[ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_ybec1"]
+[ext_resource type="PackedScene" path="res://Scenes/grass_static_body_2d.tscn" id="2_cq72t"]
+[ext_resource type="PackedScene" path="res://Scenes/building_static_body_2d.tscn" id="3_dpfn6"]
+[ext_resource type="PackedScene" uid="uid://bi72onmq20oxi" path="res://Scenes/crane_static_body_2d.tscn" id="4_umjpq"]
+[ext_resource type="PackedScene" uid="uid://ct2ju673perps" path="res://Scenes/black_building_static_body_2d.tscn" id="5_lji0o"]
+[ext_resource type="PackedScene" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
+[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
+[ext_resource type="PackedScene" uid="uid://crmx814esrx1s" path="res://Scenes/rope.tscn" id="8_4lucj"]
+[ext_resource type="PackedScene" uid="uid://bxb7k54wq1e45" path="res://Scenes/falling_drone.tscn" id="8_je6th"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerBackgroundBlue" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3000, 2000)
+
+[node name="Sprite2DBackgroundBlue" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBackgroundBlue"]
+position = Vector2(1452.93, 1093)
+scale = Vector2(1.00472, 1.27167)
+texture = ExtResource("1_ybec1")
+
+[node name="BuildingStaticBody2D" parent="." instance=ExtResource("3_dpfn6")]
+position = Vector2(768, 2002)
+scale = Vector2(0.5, 0.8)
+
+[node name="CraneStaticBody2D" parent="." instance=ExtResource("4_umjpq")]
+position = Vector2(3481, -41)
+scale = Vector2(0.7, 1)
+
+[node name="BlackBuildingStaticBody2D" parent="." instance=ExtResource("5_lji0o")]
+position = Vector2(4073, 612)
+
+[node name="CageWithMonkeyWifeStaticBody2D" parent="." instance=ExtResource("6_i13h5")]
+
+[node name="Rope" parent="." instance=ExtResource("8_4lucj")]
+position = Vector2(2000, 882)
+rotation = -1.02214
+
+[node name="Falling Drone" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1160, 872)
+
+[node name="Falling Drone2" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1358, 885)
+
+[node name="Falling Drone3" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1580, 929)
+
+[node name="Falling Drone4" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1826, 909)
+
+[node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
+position = Vector2(761, 2954)
+
+[node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
+position = Vector2(709, -103)
+collision_layer = 2
+collision_mask = 2
