@@ -19,8 +19,9 @@ const REDUCED_ZOOM = 1.5
 var left_arm_axis = Vector2.ZERO
 var right_arm_axis = Vector2.ZERO
 
-var left_hand_can_grab = null
-var right_hand_can_grab = null
+#these are numeric so it doesnt bug if the hand touches 2 different grabbale objects at the same time
+var left_hand_can_grab = 0
+var right_hand_can_grab = 0
 
 var is_left_grabbing = false
 var is_right_grabbing = false
@@ -120,17 +121,19 @@ func pull_player_to_hand(hand_axis, hand, arm_offset):
 		linear_velocity = Vector2.ZERO
 
 func _on_lefthand_body_entered(body: Node2D) -> void:
-	left_hand_can_grab = body
+	left_hand_can_grab += 1
 	print("LeftHand can grab")
 
 func _on_lefthand_body_exited(body: Node2D) -> void:
-	left_hand_can_grab = null
+	left_hand_can_grab -= 1
+	is_left_grabbing = false
 	print("LeftHand cant grab")
 
 func _on_righthand_body_entered(body: Node2D) -> void:
-	right_hand_can_grab = body
+	right_hand_can_grab += 1
 	print("RightHand can grab")
 
 func _on_righthand_body_exited(body: Node2D) -> void:
-	right_hand_can_grab = null
+	right_hand_can_grab -= 1
+	is_right_grabbing = false
 	print("RightHand cant grab")
