@@ -19,11 +19,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
 size = Vector2(207, 122)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m12e4"]
-size = Vector2(8932, 152.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy0dj"]
+size = Vector2(8870.5, 123)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_07av8"]
-size = Vector2(2178.75, 163)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45c2d"]
+size = Vector2(2127, 127)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-2738, 360)
@@ -141,30 +141,37 @@ scale = Vector2(0.6, 0.6)
 [node name="DeathArea" parent="." instance=ExtResource("14_jqqrd")]
 position = Vector2(-2517, 3716)
 
+[node name="Area2D" parent="DeathArea" index="0"]
+position = Vector2(-6826, -5678)
+
 [node name="CollisionShape2D" parent="DeathArea/Area2D" index="0"]
-position = Vector2(-6765, -8782.5)
+position = Vector2(56, -834)
 
 [node name="DeathArea2" parent="." instance=ExtResource("14_jqqrd")]
-position = Vector2(10955, 4004)
+position = Vector2(-5034, 7432)
 
 [node name="CollisionShape2D" parent="DeathArea2/Area2D" index="0"]
-position = Vector2(-6947, -9079)
+position = Vector2(9040, -10228.9)
 
-[node name="DeathArea3" type="Node2D" parent="."]
+[node name="DeathArea3" parent="." instance=ExtResource("14_jqqrd")]
+position = Vector2(-2517, 3716)
 
-[node name="Area2D" type="Area2D" parent="DeathArea3"]
+[node name="Area2D" parent="DeathArea3" index="0"]
+position = Vector2(-6826, -5678)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea3/Area2D"]
-position = Vector2(-4244, 3001.25)
-shape = SubResource("RectangleShape2D_m12e4")
+[node name="CollisionShape2D" parent="DeathArea3/Area2D" index="0"]
+position = Vector2(5062.75, 4974.5)
+shape = SubResource("RectangleShape2D_xy0dj")
 
-[node name="DeathArea4" type="Node2D" parent="."]
+[node name="DeathArea4" parent="." instance=ExtResource("14_jqqrd")]
+position = Vector2(-2517, 3716)
 
-[node name="Area2D" type="Area2D" parent="DeathArea4"]
+[node name="Area2D" parent="DeathArea4" index="0"]
+position = Vector2(-6826, -5678)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea4/Area2D"]
-position = Vector2(2344.38, 2992)
-shape = SubResource("RectangleShape2D_07av8")
+[node name="CollisionShape2D" parent="DeathArea4/Area2D" index="0"]
+position = Vector2(11714.5, 4973.5)
+shape = SubResource("RectangleShape2D_45c2d")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_w08uu")
@@ -177,3 +184,5 @@ parameters/looping = true
 
 [editable path="DeathArea"]
 [editable path="DeathArea2"]
+[editable path="DeathArea3"]
+[editable path="DeathArea4"]
