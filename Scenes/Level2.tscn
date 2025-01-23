@@ -1,28 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpls2sg6p8cwb"]
+[gd_scene load_steps=10 format=3 uid="uid://bpls2sg6p8cwb"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_ybec1"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/grass_static_body_2d.tscn" id="2_cq72t"]
-[ext_resource type="PackedScene" path="res://Scenes/building_static_body_2d.tscn" id="3_dpfn6"]
+[ext_resource type="PackedScene" uid="uid://b52au6ty8l31" path="res://Scenes/building_static_body_2d.tscn" id="3_dpfn6"]
 [ext_resource type="PackedScene" uid="uid://bhvu485kq6xwe" path="res://Scenes/crane_static_body_2d.tscn" id="4_umjpq"]
-[ext_resource type="PackedScene" path="res://Scenes/black_building_static_body_2d.tscn" id="5_lji0o"]
-[ext_resource type="PackedScene" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
+[ext_resource type="PackedScene" uid="uid://b77my14sty3cp" path="res://Scenes/black_building_static_body_2d.tscn" id="5_lji0o"]
+[ext_resource type="PackedScene" uid="uid://bvg5wjqdqwkk8" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
+[ext_resource type="PackedScene" uid="uid://dmqo53p21qnpi" path="res://Scenes/rope.tscn" id="8_4lucj"]
+[ext_resource type="PackedScene" uid="uid://caichv3kj5h78" path="res://Scenes/test_falling.tscn" id="8_je6th"]
 
 [node name="Level2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayerBackgroundBlue" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(3000, 2000)
 
 [node name="Sprite2DBackgroundBlue" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBackgroundBlue"]
-position = Vector2(576, -573)
-scale = Vector2(1, 1.897)
+position = Vector2(1452.93, 1093)
+scale = Vector2(1.00472, 1.27167)
 texture = ExtResource("1_ybec1")
 
 [node name="BuildingStaticBody2D" parent="." instance=ExtResource("3_dpfn6")]
-position = Vector2(371, 810)
+position = Vector2(768, 2002)
 scale = Vector2(0.5, 0.8)
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
@@ -37,7 +38,17 @@ scale = Vector2(0.7, 1)
 
 [node name="CageWithMonkeyWifeStaticBody2D" parent="." instance=ExtResource("6_i13h5")]
 
+[node name="Rope" parent="." instance=ExtResource("8_4lucj")]
+position = Vector2(857, 718)
+rotation = -2.32654
+
+[node name="PinJoint2D" parent="Rope" index="1"]
+position = Vector2(8.23, -8.7331)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(760, 1736)
+
 [node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
 position = Vector2(761, 2954)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[editable path="Rope"]
