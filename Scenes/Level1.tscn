@@ -1,29 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2scrdi6b375h"]
+[gd_scene load_steps=16 format=3 uid="uid://46tr3m8dqxmg"]
 
 [ext_resource type="Texture2D" uid="uid://c658eq8vv5kx6" path="res://Assets/junglebackground.jpg" id="1_k52o2"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_paxg3"]
 [ext_resource type="PackedScene" uid="uid://dafr185s33wep" path="res://Scenes/Objects/tree_area_2d.tscn" id="5_euoim"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/Objects/grass_static_body_2d.tscn" id="6_u28qg"]
-[ext_resource type="PackedScene" uid="uid://c7lxt560pfye1" path="res://Scenes/Objects/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
-[ext_resource type="PackedScene" uid="uid://clc4ysn8d4p8h" path="res://Scenes/Objects/liana_area_2d.tscn" id="7_srf84"]
+[ext_resource type="PackedScene" uid="uid://r1tb0xyqlgq1" path="res://Scenes/tree_with_many_branches_static_body_2d.tscn" id="7_2n4o5"]
+[ext_resource type="PackedScene" uid="uid://cfrvaqe4c8l84" path="res://Scenes/liana_area_2d.tscn" id="7_srf84"]
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/Objects/vertical_liana_area_2d.tscn" id="8_6duus"]
-[ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/Objects/branch.tscn" id="8_25xq1"]
-[ext_resource type="PackedScene" uid="uid://05y42k8t1b1b" path="res://Scenes/Objects/plaque.tscn" id="9_3sie5"]
+[ext_resource type="PackedScene" uid="uid://dy7vrc0620lpr" path="res://Scenes/branch.tscn" id="8_25xq1"]
+[ext_resource type="PackedScene" uid="uid://dv3so4qp53rv7" path="res://Scenes/plaque.tscn" id="9_3sie5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
-[ext_resource type="PackedScene" uid="uid://4vhupvjgk7" path="res://Scenes/Objects/rocks.tscn" id="12_rbv3k"]
-[ext_resource type="PackedScene" uid="uid://cqnituqkbeq0u" path="res://Scenes/death_area.tscn" id="14_jqqrd"]
+[ext_resource type="PackedScene" uid="uid://clkbdloyh3l3f" path="res://Scenes/rocks.tscn" id="12_rbv3k"]
 [ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/Music/adventure-game-262423.mp3" id="14_w08uu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
 size = Vector2(207, 122)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy0dj"]
-size = Vector2(8870.5, 123)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_45c2d"]
-size = Vector2(2127, 127)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-2738, 360)
@@ -138,41 +131,6 @@ rotation = -2.50632
 position = Vector2(739, 2153)
 scale = Vector2(0.6, 0.6)
 
-[node name="DeathArea" parent="." instance=ExtResource("14_jqqrd")]
-position = Vector2(-2517, 3716)
-
-[node name="Area2D" parent="DeathArea" index="0"]
-position = Vector2(-6826, -5678)
-
-[node name="CollisionShape2D" parent="DeathArea/Area2D" index="0"]
-position = Vector2(56, -834)
-
-[node name="DeathArea2" parent="." instance=ExtResource("14_jqqrd")]
-position = Vector2(-5034, 7432)
-
-[node name="CollisionShape2D" parent="DeathArea2/Area2D" index="0"]
-position = Vector2(9040, -10228.9)
-
-[node name="DeathArea3" parent="." instance=ExtResource("14_jqqrd")]
-position = Vector2(-2517, 3716)
-
-[node name="Area2D" parent="DeathArea3" index="0"]
-position = Vector2(-6826, -5678)
-
-[node name="CollisionShape2D" parent="DeathArea3/Area2D" index="0"]
-position = Vector2(5062.75, 4974.5)
-shape = SubResource("RectangleShape2D_xy0dj")
-
-[node name="DeathArea4" parent="." instance=ExtResource("14_jqqrd")]
-position = Vector2(-2517, 3716)
-
-[node name="Area2D" parent="DeathArea4" index="0"]
-position = Vector2(-6826, -5678)
-
-[node name="CollisionShape2D" parent="DeathArea4/Area2D" index="0"]
-position = Vector2(11714.5, 4973.5)
-shape = SubResource("RectangleShape2D_45c2d")
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_w08uu")
 volume_db = -6.0
@@ -181,8 +139,3 @@ parameters/looping = true
 
 [connection signal="body_entered" from="Plaque/Area2D" to="Plaque/Area2D" method="_on_body_entered"]
 [connection signal="level_complete" from="Plaque/Area2D" to="." method="_on_level_complete"]
-
-[editable path="DeathArea"]
-[editable path="DeathArea2"]
-[editable path="DeathArea3"]
-[editable path="DeathArea4"]
