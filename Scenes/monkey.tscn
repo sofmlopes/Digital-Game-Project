@@ -115,6 +115,7 @@ texture = ExtResource("4_664yh")
 [node name="GrabSound" type="AudioStreamPlayer2D" parent="LeftHand"]
 scale = Vector2(50, 50)
 stream = ExtResource("5_71m0e")
+volume_db = -6.0
 
 [node name="left_collision" type="Area2D" parent="LeftHand"]
 scale = Vector2(5, 5)
@@ -131,6 +132,8 @@ texture = ExtResource("4_664yh")
 [node name="GrabSound" type="AudioStreamPlayer2D" parent="RightHand"]
 position = Vector2(0, -50)
 scale = Vector2(50, 50)
+stream = ExtResource("5_71m0e")
+volume_db = -6.0
 
 [node name="right_collision" type="Area2D" parent="RightHand"]
 scale = Vector2(5, 5)
