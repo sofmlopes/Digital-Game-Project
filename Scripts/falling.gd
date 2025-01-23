@@ -5,7 +5,6 @@ extends RigidBody2D  # Ensure your node is RigidBody2D
 
 func _ready() -> void:
 	# Set RigidBody2D to "Static" mode initially
-	sleeping = true
 	gravity_scale = 0
 	physics_material_override = PhysicsMaterial.new()
 
@@ -18,5 +17,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		start_falling()
 
 func start_falling() -> void:
-	sleeping = false  # Wake up the rigid body
 	gravity_scale = 1  # Enable gravity to make the platform fall

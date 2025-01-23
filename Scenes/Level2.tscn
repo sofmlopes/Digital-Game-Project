@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvg5wjqdqwkk8" path="res://Scenes/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
 [ext_resource type="PackedScene" uid="uid://dmqo53p21qnpi" path="res://Scenes/rope.tscn" id="8_4lucj"]
-[ext_resource type="PackedScene" uid="uid://caichv3kj5h78" path="res://Scenes/fallind_drone.tscn" id="8_je6th"]
+[ext_resource type="PackedScene" uid="uid://caichv3kj5h78" path="res://Scenes/falling_drone.tscn" id="8_je6th"]
 
 [node name="Level2" type="Node2D"]
 
@@ -45,8 +45,8 @@ rotation = -2.32654
 [node name="PinJoint2D" parent="Rope" index="1"]
 position = Vector2(8.23, -8.7331)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(760, 1736)
+[node name="Falling Drone" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1382, 731)
 
 [node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
 position = Vector2(761, 2954)
