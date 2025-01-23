@@ -19,6 +19,8 @@ const REDUCED_ZOOM = 1.5
 @onready var right_grab_notifier = get_node("../RightHand/right_collision")
 
 @onready var camera = $Camera2D
+@onready var death_sound = $DeathSound
+
 
 var left_arm_axis = Vector2.ZERO
 var right_arm_axis = Vector2.ZERO
@@ -139,3 +141,8 @@ func _on_righthand_body_entered(body: Node2D) -> void:
 func _on_righthand_body_exited(body: Node2D) -> void:
 	right_hand_can_grab -= 1
 	is_right_grabbing = false
+
+func die() -> void:
+	death_sound.play()
+	await get_tree().create_timer(2.0).timeout  # Wait for 2 seconds
+	get_tree().reload_current_scene()  # Reset the scene
