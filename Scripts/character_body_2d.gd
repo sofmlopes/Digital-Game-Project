@@ -6,8 +6,13 @@ const ARM_MAX_DISTANCE = 40.0
 const LEFT_ARM_OFFSET = Vector2(-32, -22)
 const RIGHT_ARM_OFFSET = Vector2(32, -22)
 
+const DEFAULT_ZOOM = 2.5
+const REDUCED_ZOOM = 1.5
+
 @onready var left_hand = get_node("../LeftHand")
 @onready var right_hand = get_node("../RightHand")
+
+@onready var camera = $Camera2D
 
 var left_arm_axis = Vector2.ZERO
 var right_arm_axis = Vector2.ZERO
@@ -36,6 +41,13 @@ func _process(delta: float) -> void:
 	left_arm_axis = Vector2(left_x, left_y) * ARM_MAX_DISTANCE
 	
 	right_arm_axis = Vector2(right_x, right_y) * ARM_MAX_DISTANCE
+	
+	if Input.is_action_pressed("zoom_out"):
+		camera.zoom.x = REDUCED_ZOOM
+		camera.zoom.y = REDUCED_ZOOM
+	else:
+		camera.zoom.x = DEFAULT_ZOOM
+		camera.zoom.y = DEFAULT_ZOOM
 	
 	if Input.is_action_pressed("grab_left") and left_hand_can_grab != null and is_left_grabbing == false: #need to save which object it was
 		print("idk")
