@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://miguel/sprites/macaco.png" id="1_eelxn"]
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="2_pqmiu"]
 [ext_resource type="Texture2D" uid="uid://bfrpq0lolw4vn" path="res://Assets/Red-Circle-Transparent.png" id="4_664yh"]
-[ext_resource type="AudioStream" uid="uid://bh4t4qy5awkf4" path="res://Sounds/sfx/lighter-click-271118.mp3" id="5_71m0e"]
+[ext_resource type="AudioStream" uid="uid://b4np774qjfdoh" path="res://Sounds/sfx/lighter-click-271118.mp3" id="5_71m0e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
 radius = 238.0
