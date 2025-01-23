@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpls2sg6p8cwb"]
+[gd_scene load_steps=12 format=3 uid="uid://bpls2sg6p8cwb"]
 
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_ybec1"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/Objects/grass_static_body_2d.tscn" id="2_cq72t"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
 [ext_resource type="PackedScene" uid="uid://dmqo53p21qnpi" path="res://Scenes/Objects/rope.tscn" id="8_4lucj"]
 [ext_resource type="PackedScene" uid="uid://caichv3kj5h78" path="res://Scenes/Objects/falling_drone.tscn" id="8_je6th"]
+[ext_resource type="PackedScene" uid="uid://piihfh41t4p5" path="res://Scenes/Objects/cloud.tscn" id="9_6bdp4"]
+[ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="10_w435e"]
 
 [node name="Level2" type="Node2D"]
 
@@ -26,17 +28,22 @@ texture = ExtResource("1_ybec1")
 position = Vector2(768, 2002)
 scale = Vector2(0.5, 0.8)
 
-[node name="CraneStaticBody2D" parent="." instance=ExtResource("4_umjpq")]
-position = Vector2(2067, 27)
-scale = Vector2(0.7, 1)
-
 [node name="BlackBuildingStaticBody2D" parent="." instance=ExtResource("5_lji0o")]
-position = Vector2(0, 92)
+position = Vector2(2322, 117)
+
+[node name="BlackBuildingStaticBody2D2" parent="." instance=ExtResource("5_lji0o")]
+position = Vector2(9426, -1430)
 
 [node name="CageWithMonkeyWifeStaticBody2D" parent="." instance=ExtResource("6_i13h5")]
+position = Vector2(8686, -2966)
+
+[node name="CraneStaticBody2D" parent="." instance=ExtResource("4_umjpq")]
+position = Vector2(2507, 961)
+scale = Vector2(0.7, 1)
 
 [node name="Rope" parent="." instance=ExtResource("8_4lucj")]
-position = Vector2(2000, 882)
+position = Vector2(2861, -1035)
+rotation = -1.10807
 
 [node name="Falling Drone" parent="." instance=ExtResource("8_je6th")]
 position = Vector2(1160, 872)
@@ -48,10 +55,42 @@ position = Vector2(1358, 885)
 position = Vector2(1580, 929)
 
 [node name="Falling Drone4" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(1826, 909)
+position = Vector2(1810, 934)
+
+[node name="Falling Drone5" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(9661, -2455)
+
+[node name="Falling Drone6" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(9883, -2506)
+
+[node name="Falling Drone7" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(10095, -2540)
+
+[node name="Falling Drone8" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(10282, -2557)
+
+[node name="Falling Drone9" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(10474, -2557)
+
+[node name="Arrow" parent="." instance=ExtResource("10_w435e")]
+position = Vector2(2464, -455)
+rotation = 2.06137
+
+[node name="Arrow2" parent="." instance=ExtResource("10_w435e")]
+position = Vector2(4855, -1306)
+rotation = 3.25133
+
+[node name="Cloud" parent="." instance=ExtResource("9_6bdp4")]
+position = Vector2(7136, -1432)
+
+[node name="Cloud2" parent="." instance=ExtResource("9_6bdp4")]
+position = Vector2(8708, -2469)
+
+[node name="Cloud3" parent="." instance=ExtResource("9_6bdp4")]
+position = Vector2(11243, -2724)
 
 [node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
-position = Vector2(761, 2954)
+position = Vector2(715, 2844)
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
 position = Vector2(709, -103)
