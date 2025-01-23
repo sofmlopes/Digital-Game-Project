@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://xc1x8rb4buj7"]
-
-[node name="TestJoints" type="Node2D"]
-
-[node name="Monkey" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Monkey"]
