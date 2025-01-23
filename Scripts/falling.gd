@@ -15,4 +15,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("Triggered: Starting fall delay")
 		# Wait for the delay and then make the platform fall
 		await get_tree().create_timer(fall_delay).timeout
-		sleeping = false  # Let the platform fall
+		start_falling()
+
+func start_falling() -> void:
+	sleeping = false  # Wake up the rigid body
+	gravity_scale = 1  # Enable gravity to make the platform fall
