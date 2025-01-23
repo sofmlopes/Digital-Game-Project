@@ -11,8 +11,12 @@ const REDUCED_ZOOM = 1.5
 
 @onready var left_hand = get_node("../LeftHand")
 @onready var right_hand = get_node("../RightHand")
+
 @onready var left_hand_sound: AudioStreamPlayer2D = get_node("../LeftHand/GrabSound")
 @onready var right_hand_sound: AudioStreamPlayer2D = get_node("../RightHand/GrabSound")
+
+@onready var left_grab_notifier = get_node("../LeftHand/left_collision")
+@onready var right_grab_notifier = get_node("../RightHand/right_collision")
 
 @onready var camera = $Camera2D
 
@@ -55,16 +59,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("grab_left") and left_hand_can_grab > 0 and is_left_grabbing == false: #need to save which object it was
 		print("idk")
 		is_left_grabbing = true
+		left_grab_notifier.grabbing = true
 		left_hand_sound.play()
 	elif Input.is_action_just_released("grab_left"):
 		is_left_grabbing = false
+		left_grab_notifier.grabbing = false
 		
 	if Input.is_action_pressed("grab_right") and right_hand_can_grab > 0 and is_right_grabbing == false: #need to save which object it was
 		print("idk")
 		is_right_grabbing = true
+		right_grab_notifier.grabbing = true
 		right_hand_sound.play()
 	elif Input.is_action_just_released("grab_right"):
 		is_right_grabbing = false
+		right_grab_notifier.grabbing = false
 
 func _physics_process(delta: float) -> void:
 	# Gravity

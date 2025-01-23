@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://caichv3kj5h78"]
+[gd_scene load_steps=3 format=3 uid="uid://dfmjm057gbusi"]
 
 [ext_resource type="Script" path="res://Scripts/falling.gd" id="1_rgoiq"]
 [ext_resource type="Texture2D" uid="uid://g6w2o2tlgtml" path="res://Assets/drone.png" id="2_j5nfp"]
@@ -8,7 +8,7 @@ collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_rgoiq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["falling_objects"]]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_j5nfp")
 

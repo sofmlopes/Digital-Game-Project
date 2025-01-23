@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b16ttdwsw553e"]
+[gd_scene load_steps=9 format=3 uid="uid://b16ttdwsw553e"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_5f044"]
 [ext_resource type="Texture2D" uid="uid://cjagme8f5eg08" path="res://miguel/sprites/macaco.png" id="1_eelxn"]
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="2_pqmiu"]
 [ext_resource type="Texture2D" uid="uid://bfrpq0lolw4vn" path="res://Assets/Red-Circle-Transparent.png" id="4_664yh"]
 [ext_resource type="AudioStream" uid="uid://b4np774qjfdoh" path="res://Sounds/sfx/lighter-click-271118.mp3" id="5_71m0e"]
+[ext_resource type="Script" path="res://miguel/scripts/grab_notifier.gd" id="6_ro3uk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdu0q"]
 radius = 238.0
@@ -120,6 +121,7 @@ volume_db = -6.0
 [node name="left_collision" type="Area2D" parent="LeftHand"]
 scale = Vector2(5, 5)
 collision_mask = 5
+script = ExtResource("6_ro3uk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/left_collision"]
 shape = SubResource("CapsuleShape2D_0vqks")
@@ -139,11 +141,13 @@ volume_db = -6.0
 [node name="right_collision" type="Area2D" parent="RightHand"]
 scale = Vector2(5, 5)
 collision_mask = 5
+script = ExtResource("6_ro3uk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/right_collision"]
 shape = SubResource("CapsuleShape2D_0vqks")
 
 [connection signal="body_entered" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_entered"]
+[connection signal="body_entered" from="LeftHand/left_collision" to="LeftHand/left_collision" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_exited"]
 [connection signal="body_entered" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_entered"]
 [connection signal="body_exited" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_exited"]
