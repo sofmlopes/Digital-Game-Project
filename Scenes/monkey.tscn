@@ -150,4 +150,5 @@ shape = SubResource("CapsuleShape2D_0vqks")
 [connection signal="body_entered" from="LeftHand/left_collision" to="LeftHand/left_collision" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftHand/left_collision" to="CharacterBody2D" method="_on_lefthand_body_exited"]
 [connection signal="body_entered" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_entered"]
+[connection signal="body_entered" from="RightHand/right_collision" to="RightHand/right_collision" method="_on_body_entered"]
 [connection signal="body_exited" from="RightHand/right_collision" to="CharacterBody2D" method="_on_righthand_body_exited"]

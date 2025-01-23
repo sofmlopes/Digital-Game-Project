@@ -57,7 +57,6 @@ func _process(delta: float) -> void:
 		camera.zoom.y = DEFAULT_ZOOM
 	
 	if Input.is_action_pressed("grab_left") and left_hand_can_grab > 0 and is_left_grabbing == false: #need to save which object it was
-		print("idk")
 		is_left_grabbing = true
 		left_grab_notifier.grabbing = true
 		left_hand_sound.play()
@@ -66,7 +65,6 @@ func _process(delta: float) -> void:
 		left_grab_notifier.grabbing = false
 		
 	if Input.is_action_pressed("grab_right") and right_hand_can_grab > 0 and is_right_grabbing == false: #need to save which object it was
-		print("idk")
 		is_right_grabbing = true
 		right_grab_notifier.grabbing = true
 		right_hand_sound.play()
@@ -130,18 +128,14 @@ func pull_player_to_hand(hand_axis, hand, arm_offset):
 
 func _on_lefthand_body_entered(body: Node2D) -> void:
 	left_hand_can_grab += 1
-	print("LeftHand can grab")
 
 func _on_lefthand_body_exited(body: Node2D) -> void:
 	left_hand_can_grab -= 1
 	is_left_grabbing = false
-	print("LeftHand cant grab")
 
 func _on_righthand_body_entered(body: Node2D) -> void:
 	right_hand_can_grab += 1
-	print("RightHand can grab")
 
 func _on_righthand_body_exited(body: Node2D) -> void:
 	right_hand_can_grab -= 1
 	is_right_grabbing = false
-	print("RightHand cant grab")

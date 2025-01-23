@@ -1,6 +1,6 @@
 extends RigidBody2D  # Ensure your node is RigidBody2D
 
-@export var fall_delay: float = 2.5  # Time delay before the platform starts falling
+@export var fall_delay: float = 2  # Time delay before the platform starts falling
 @export var affected_group: String = "monkey"  # Group to detect (e.g., the player)
 
 #This should be changed by another script

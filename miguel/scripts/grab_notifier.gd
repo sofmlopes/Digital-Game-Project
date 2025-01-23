@@ -13,8 +13,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if grabbing == true and current_body != null and current_body.is_in_group("falling_objects"):
-		current_body.start_falling()
-
+		current_body.start_timer()
+		print("timer started")
 
 func _on_body_entered(body: Node2D) -> void:
 	current_body = body

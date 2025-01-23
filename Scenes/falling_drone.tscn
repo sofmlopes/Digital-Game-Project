@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfmjm057gbusi"]
+[gd_scene load_steps=3 format=3 uid="uid://caichv3kj5h78"]
 
 [ext_resource type="Script" path="res://Scripts/falling.gd" id="1_rgoiq"]
 [ext_resource type="Texture2D" uid="uid://g6w2o2tlgtml" path="res://Assets/drone.png" id="2_j5nfp"]
 
-[node name="Falling Drone" type="RigidBody2D"]
+[node name="Falling Drone" type="RigidBody2D" groups=["falling_objects"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_rgoiq")

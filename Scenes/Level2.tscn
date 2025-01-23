@@ -26,29 +26,34 @@ texture = ExtResource("1_ybec1")
 position = Vector2(768, 2002)
 scale = Vector2(0.5, 0.8)
 
-[node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
-collision_layer = 2
-collision_mask = 2
-
 [node name="CraneStaticBody2D" parent="." instance=ExtResource("4_umjpq")]
-position = Vector2(296, 56)
+position = Vector2(2067, 27)
 scale = Vector2(0.7, 1)
 
 [node name="BlackBuildingStaticBody2D" parent="." instance=ExtResource("5_lji0o")]
+position = Vector2(0, 92)
 
 [node name="CageWithMonkeyWifeStaticBody2D" parent="." instance=ExtResource("6_i13h5")]
 
 [node name="Rope" parent="." instance=ExtResource("8_4lucj")]
-position = Vector2(857, 718)
-rotation = -2.32654
-
-[node name="PinJoint2D" parent="Rope" index="1"]
-position = Vector2(8.23, -8.7331)
+position = Vector2(2000, 882)
 
 [node name="Falling Drone" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(1382, 731)
+position = Vector2(1160, 872)
+
+[node name="Falling Drone2" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1358, 885)
+
+[node name="Falling Drone3" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1580, 929)
+
+[node name="Falling Drone4" parent="." instance=ExtResource("8_je6th")]
+position = Vector2(1826, 909)
 
 [node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
 position = Vector2(761, 2954)
 
-[editable path="Rope"]
+[node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
+position = Vector2(709, -103)
+collision_layer = 2
+collision_mask = 2
