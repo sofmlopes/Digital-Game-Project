@@ -52,14 +52,14 @@ func _process(delta: float) -> void:
 		camera.zoom.x = DEFAULT_ZOOM
 		camera.zoom.y = DEFAULT_ZOOM
 	
-	if Input.is_action_pressed("grab_left") and left_hand_can_grab != null and is_left_grabbing == false: #need to save which object it was
+	if Input.is_action_pressed("grab_left") and left_hand_can_grab > 0 and is_left_grabbing == false: #need to save which object it was
 		print("idk")
 		is_left_grabbing = true
 		left_hand_sound.play()
 	elif Input.is_action_just_released("grab_left"):
 		is_left_grabbing = false
 		
-	if Input.is_action_pressed("grab_right") and right_hand_can_grab != null and is_right_grabbing == false: #need to save which object it was
+	if Input.is_action_pressed("grab_right") and right_hand_can_grab > 0 and is_right_grabbing == false: #need to save which object it was
 		print("idk")
 		is_right_grabbing = true
 		right_hand_sound.play()
