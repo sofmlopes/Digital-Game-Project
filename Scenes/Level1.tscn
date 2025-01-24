@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/Objects/vertical_liana_area_2d.tscn" id="8_6duus"]
 [ext_resource type="PackedScene" uid="uid://dy7vrc0620lpr" path="res://Scenes/branch.tscn" id="8_25xq1"]
 [ext_resource type="PackedScene" uid="uid://dv3so4qp53rv7" path="res://Scenes/plaque.tscn" id="9_3sie5"]
-[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
+[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/Objects/monkey.tscn" id="9_mgyjb"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
 [ext_resource type="PackedScene" uid="uid://clkbdloyh3l3f" path="res://Scenes/rocks.tscn" id="12_rbv3k"]

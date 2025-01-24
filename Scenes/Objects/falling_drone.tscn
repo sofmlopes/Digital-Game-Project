@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://g6w2o2tlgtml" path="res://Assets/drone.png" id="2_j5nfp"]
 
 [node name="Falling Drone" type="RigidBody2D" groups=["falling_objects"]]
-collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_rgoiq")
 

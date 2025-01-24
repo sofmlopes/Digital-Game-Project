@@ -16,7 +16,7 @@ height = 482.0
 radius = 52.0
 height = 104.0
 
-[node name="Monkey" type="Node2D"]
+[node name="Monkey" type="Node2D" groups=["monkey"]]
 
 [node name="CharacterBody2D" type="RigidBody2D" parent="." groups=["monkey"]]
 collision_layer = 2

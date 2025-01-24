@@ -1,18 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpls2sg6p8cwb"]
+[gd_scene load_steps=20 format=3 uid="uid://bpls2sg6p8cwb"]
 
+[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_7cola"]
 [ext_resource type="Texture2D" uid="uid://cq74vaoksrpib" path="res://Assets/Level1Background.jpg" id="1_ybec1"]
 [ext_resource type="PackedScene" uid="uid://bilpj4jkb5hln" path="res://Scenes/Objects/grass_static_body_2d.tscn" id="2_cq72t"]
 [ext_resource type="PackedScene" uid="uid://b52au6ty8l31" path="res://Scenes/Objects/building_static_body_2d.tscn" id="3_dpfn6"]
 [ext_resource type="PackedScene" uid="uid://bhvu485kq6xwe" path="res://Scenes/Objects/crane_static_body_2d.tscn" id="4_umjpq"]
 [ext_resource type="PackedScene" uid="uid://b77my14sty3cp" path="res://Scenes/Objects/black_building_static_body_2d.tscn" id="5_lji0o"]
+[ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="6_6p2ur"]
 [ext_resource type="PackedScene" uid="uid://bvg5wjqdqwkk8" path="res://Scenes/Objects/cage_with_monkey_wife_static_body_2d.tscn" id="6_i13h5"]
-[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="7_xdmu7"]
+[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/Objects/monkey.tscn" id="7_xdmu7"]
 [ext_resource type="PackedScene" uid="uid://dmqo53p21qnpi" path="res://Scenes/Objects/rope.tscn" id="8_4lucj"]
 [ext_resource type="PackedScene" uid="uid://caichv3kj5h78" path="res://Scenes/Objects/falling_drone.tscn" id="8_je6th"]
 [ext_resource type="PackedScene" uid="uid://piihfh41t4p5" path="res://Scenes/Objects/cloud.tscn" id="9_6bdp4"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="10_w435e"]
+[ext_resource type="PackedScene" uid="uid://cqnituqkbeq0u" path="res://Scenes/Objects/death_area.tscn" id="12_j2r1a"]
+[ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/Music/adventure-game-262423.mp3" id="14_ll260"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1sga"]
+radius = 139.617
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb0x3"]
+size = Vector2(1470, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dooxi"]
+size = Vector2(2080, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eidn"]
+size = Vector2(7372, 81)
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_7cola")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -35,7 +52,17 @@ position = Vector2(2322, 117)
 position = Vector2(9426, -1430)
 
 [node name="CageWithMonkeyWifeStaticBody2D" parent="." instance=ExtResource("6_i13h5")]
-position = Vector2(8686, -2966)
+position = Vector2(13115, -3429)
+
+[node name="Area2D" type="Area2D" parent="CageWithMonkeyWifeStaticBody2D"]
+position = Vector2(3, -203)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("6_6p2ur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CageWithMonkeyWifeStaticBody2D/Area2D"]
+position = Vector2(-2, -19)
+shape = SubResource("CircleShape2D_a1sga")
 
 [node name="CraneStaticBody2D" parent="." instance=ExtResource("4_umjpq")]
 position = Vector2(2507, 961)
@@ -58,19 +85,19 @@ position = Vector2(1580, 929)
 position = Vector2(1810, 934)
 
 [node name="Falling Drone5" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(9661, -2455)
+position = Vector2(9475, -2227)
 
 [node name="Falling Drone6" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(9883, -2506)
+position = Vector2(9697, -2278)
 
 [node name="Falling Drone7" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(10095, -2540)
+position = Vector2(9909, -2312)
 
 [node name="Falling Drone8" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(10282, -2557)
+position = Vector2(10096, -2329)
 
 [node name="Falling Drone9" parent="." instance=ExtResource("8_je6th")]
-position = Vector2(10474, -2557)
+position = Vector2(10288, -2329)
 
 [node name="Arrow" parent="." instance=ExtResource("10_w435e")]
 position = Vector2(2464, -455)
@@ -84,15 +111,62 @@ rotation = 3.25133
 position = Vector2(7136, -1432)
 
 [node name="Cloud2" parent="." instance=ExtResource("9_6bdp4")]
-position = Vector2(8708, -2469)
+position = Vector2(8564, -2151)
 
 [node name="Cloud3" parent="." instance=ExtResource("9_6bdp4")]
-position = Vector2(11243, -2724)
+position = Vector2(11045, -2580)
 
 [node name="Monkey" parent="." instance=ExtResource("7_xdmu7")]
-position = Vector2(715, 2844)
+position = Vector2(632, 2868)
 
 [node name="GrassStaticBody2D" parent="." instance=ExtResource("2_cq72t")]
 position = Vector2(709, -103)
 collision_layer = 2
 collision_mask = 2
+
+[node name="DeathArea" parent="." instance=ExtResource("12_j2r1a")]
+position = Vector2(-582, 789)
+
+[node name="CollisionShape2D" parent="DeathArea/Area2D" index="0"]
+position = Vector2(259, -2753)
+
+[node name="DeathArea2" parent="." instance=ExtResource("12_j2r1a")]
+position = Vector2(15169, 789)
+
+[node name="Area2D" parent="DeathArea2" index="0"]
+position = Vector2(0, -2832)
+
+[node name="DeathArea3" parent="." instance=ExtResource("12_j2r1a")]
+position = Vector2(10775, 1919)
+
+[node name="CollisionShape2D" parent="DeathArea3/Area2D" index="0"]
+position = Vector2(-8822, 969.5)
+shape = SubResource("RectangleShape2D_nb0x3")
+
+[node name="DeathArea4" parent="." instance=ExtResource("12_j2r1a")]
+position = Vector2(12555, 1919)
+
+[node name="CollisionShape2D" parent="DeathArea4/Area2D" index="0"]
+position = Vector2(-8517, 969.5)
+shape = SubResource("RectangleShape2D_dooxi")
+
+[node name="DeathArea5" parent="." instance=ExtResource("12_j2r1a")]
+position = Vector2(16767, 2162)
+
+[node name="CollisionShape2D" parent="DeathArea5/Area2D" index="0"]
+position = Vector2(-5871, 951.5)
+shape = SubResource("RectangleShape2D_2eidn")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ll260")
+volume_db = -6.0
+autoplay = true
+
+[connection signal="body_entered" from="CageWithMonkeyWifeStaticBody2D/Area2D" to="CageWithMonkeyWifeStaticBody2D/Area2D" method="_on_body_entered"]
+[connection signal="level_complete" from="CageWithMonkeyWifeStaticBody2D/Area2D" to="." method="_on_level_complete"]
+
+[editable path="DeathArea"]
+[editable path="DeathArea2"]
+[editable path="DeathArea3"]
+[editable path="DeathArea4"]
+[editable path="DeathArea5"]

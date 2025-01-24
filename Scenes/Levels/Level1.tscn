@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bkja16xxr3sfx" path="res://Scenes/Objects/vertical_liana_area_2d.tscn" id="8_6duus"]
 [ext_resource type="PackedScene" uid="uid://bhy6a560ymbj4" path="res://Scenes/Objects/branch.tscn" id="8_25xq1"]
 [ext_resource type="PackedScene" uid="uid://05y42k8t1b1b" path="res://Scenes/Objects/plaque.tscn" id="9_3sie5"]
-[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/monkey.tscn" id="9_mgyjb"]
+[ext_resource type="PackedScene" uid="uid://b16ttdwsw553e" path="res://Scenes/Objects/monkey.tscn" id="9_mgyjb"]
 [ext_resource type="PackedScene" uid="uid://cr857d7qhqci8" path="res://Scenes/Objects/arrow.tscn" id="9_p30hh"]
 [ext_resource type="Script" path="res://Scripts/goal_trigger.gd" id="10_bduhy"]
 [ext_resource type="PackedScene" uid="uid://4vhupvjgk7" path="res://Scenes/Objects/rocks.tscn" id="12_rbv3k"]
-[ext_resource type="PackedScene" uid="uid://cqnituqkbeq0u" path="res://Scenes/death_area.tscn" id="14_jqqrd"]
+[ext_resource type="PackedScene" uid="uid://cqnituqkbeq0u" path="res://Scenes/Objects/death_area.tscn" id="14_jqqrd"]
 [ext_resource type="AudioStream" uid="uid://cyy7acdu2ck1f" path="res://Sounds/Music/adventure-game-262423.mp3" id="14_w08uu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf2k"]
@@ -66,8 +66,8 @@ position = Vector2(-1437, -1915)
 rotation = 0.84817
 
 [node name="LianaStaticBody2D3" parent="." instance=ExtResource("7_srf84")]
-position = Vector2(-1510, -1754)
-rotation = 1.59806
+position = Vector2(-1722, -1737)
+rotation = 1.57015
 
 [node name="VerticalLianaArea2D" parent="." instance=ExtResource("8_6duus")]
 position = Vector2(3191, 1694)
@@ -81,7 +81,7 @@ rotation = 1.84798
 position = Vector2(-1543, 160)
 
 [node name="TreeWithManyBranchesStaticBody2D2" parent="." instance=ExtResource("7_2n4o5")]
-position = Vector2(-4859, -3789)
+position = Vector2(-5367, -3840)
 
 [node name="Branch" parent="." instance=ExtResource("8_25xq1")]
 position = Vector2(2433, -1521)
@@ -91,16 +91,20 @@ position = Vector2(1864, -1566)
 rotation = -2.37638
 
 [node name="Branch3" parent="." instance=ExtResource("8_25xq1")]
-position = Vector2(-1489, -1643)
+position = Vector2(-1549, -1651)
 rotation = -2.61631
 
 [node name="Arrow" parent="." instance=ExtResource("9_p30hh")]
-position = Vector2(-1808, -1653)
-rotation = -1.56935
+position = Vector2(-1786, -1586)
+rotation = -1.4127
 
 [node name="Arrow2" parent="." instance=ExtResource("9_p30hh")]
-position = Vector2(-1964, -550)
+position = Vector2(-2214, -648)
 rotation = 0.66347
+
+[node name="Arrow6" parent="." instance=ExtResource("9_p30hh")]
+position = Vector2(-1124, 490)
+rotation = 0.778703
 
 [node name="Arrow3" parent="." instance=ExtResource("9_p30hh")]
 position = Vector2(-1314, -1282)
@@ -111,11 +115,11 @@ position = Vector2(409, -1714)
 rotation = -1.09711
 
 [node name="Arrow5" parent="." instance=ExtResource("9_p30hh")]
-position = Vector2(-2673, -2466)
-rotation = 0.842728
+position = Vector2(-3328, -2634)
+rotation = 0.733961
 
 [node name="Plaque" parent="." instance=ExtResource("9_3sie5")]
-position = Vector2(-3791, -2937)
+position = Vector2(-4347, -2946)
 
 [node name="Area2D" type="Area2D" parent="Plaque"]
 collision_layer = 3
@@ -127,7 +131,7 @@ position = Vector2(-3.5, -55)
 shape = SubResource("RectangleShape2D_hdf2k")
 
 [node name="Branch4" parent="." instance=ExtResource("8_25xq1")]
-position = Vector2(-3548, -2768)
+position = Vector2(-4093, -2772)
 rotation = 3.17659
 
 [node name="Rocks" parent="." instance=ExtResource("12_rbv3k")]
@@ -135,7 +139,7 @@ position = Vector2(-670, 881)
 rotation = -2.50632
 
 [node name="Monkey" parent="." instance=ExtResource("9_mgyjb")]
-position = Vector2(739, 2153)
+position = Vector2(686, 3060)
 scale = Vector2(0.6, 0.6)
 
 [node name="DeathArea" parent="." instance=ExtResource("14_jqqrd")]

@@ -13,7 +13,7 @@ var right_arm_axis = Vector2.ZERO
 var left_arm_index = 3
 var right_arm_index = 6
 var hand_locked = false
-@onready var character_body = self.get_parent().get_parent() # Replace this with the path to your physics node
+@onready var character_body = self.get_parent().get_parent()
 
 # Arm offsets
 var left_arm_offset = Vector2.ZERO

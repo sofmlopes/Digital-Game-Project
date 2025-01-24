@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	left_arm_axis = Vector2(left_x, left_y) * ARM_MAX_DISTANCE
 	
 	right_arm_axis = Vector2(right_x, right_y) * ARM_MAX_DISTANCE
-	
+		
 	if Input.is_action_pressed("zoom_out"):
 		camera.zoom.x = REDUCED_ZOOM
 		camera.zoom.y = REDUCED_ZOOM
